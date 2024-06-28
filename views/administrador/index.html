@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/output.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Admin</title>
+</head>
+<body class="w-full h-screen bg-[#cbd5e1] flex items-center justify-center" >
+    <main class="w-[80%] md:w-[18rem] h-auto bg-[#4b5183] opacity-85 flex flex-col items-center rounded-lg text-red-600">
+        <h2 id="error" class="hidden">error</h2>
+         <form id="form" class="w-full gap-4 flex flex-col items-center">
+            <label for="" class="text-white font-bold mt-7">Usuario</label>
+            <input type="text" id="user" placeholder="usuario" class="w-[80%] bg-transparent font-bold text-white outline-none border border-t-0 border-r-0 border-l-0">
+            <label for="" class="text-white font-bold">Clave</label>
+            <input type="password" id="password" placeholder="clave" class="w-[80%] bg-transparent font-bold text-white outline-none border border-t-0 border-r-0 border-l-0">
+            <label for="" class="text-white font-bold">confirmar clave</label>
+            <input type="password" id="confirnPass" placeholder="confirmar clave" class="w-[80%] bg-transparent font-bold text-white outline-none border border-t-0 border-r-0 border-l-0">
+            <button id="btn" class="text-white font-bold w-40 h-14 rounded-lg bg-gray-500 mb-7 duration-300 hover:scale-110">ingresar</button>
+         </form>
+    </main>
+    <script src="admin.js"></script>
+</body>
+</html>

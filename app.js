@@ -1,0 +1,94 @@
+require('dotenv').config();
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const path = require('path');
+const usersRouter = require('./controllers/users');
+const getIntoRouter = require('./controllers/login');
+const getCategory = require('./controllers/getCategory');
+const home = require('./controllers/home');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
+const { PAGE_URL } = require('./config');
+
+const { UserExtractor } = require('./middleware/auth');
+//const { authAdmin } = require('./middleware/authAmin');
+
+const personalitation = require('./controllers/getAdmin');
+//const adminpersonalitation = require('./controllers/adminPersonalitation');
+const categories = require('./controllers/categories');
+const categorieget = require('./controllers/categorieget');
+const verificationAdmin = require('./controllers/verificationAdmin');
+
+const saveDb = require('./controllers/saveDb');
+const getProducts = require('./controllers/getProducts');
+const  updateDb = require('./controllers/updateDb');
+const deleteProduct = require('./controllers/deleteProduct');
+const edit = require('./controllers/edit');
+const deleteCookie = require('./controllers/deleteCookie');
+//conexion a mongo db
+
+(async() => {
+
+  try {
+
+    await mongoose.connect(process.env.MONGO_URI_TEST);
+    console.log(PAGE_URL);
+    console.log('Conectado a Mongo db');
+
+  } catch (error) {
+
+    console.log(error);
+
+  }
+})();
+app.use(cors());
+app.use(express.json());
+app.use(cookieParser());
+//rutas frontend
+
+app.use('/', express.static(path.resolve('views', 'home')));
+
+app.use('/categories', express.static(path.resolve('views', 'categories')));
+
+app.use('/personalitation', express.static(path.resolve('views', 'personalitation')));
+
+app.use('/styles', express.static(path.resolve('styles')));//styles css
+
+app.use('/img', express.static(path.resolve('views','img')));
+
+app.use('/signup', express.static(path.resolve('views','signup')));
+
+app.use('/createaccount', express.static(path.resolve('views','createaccount')));
+
+app.use('/editproduct/:id?', express.static(path.resolve('views','editproduct')));
+
+app.use('/admi', express.static(path.resolve('views', 'administrador')));
+
+app.use(morgan('tiny'));
+
+//rutas backend
+
+app.use('/api/users', usersRouter);
+app.use('/api/login', getIntoRouter);
+app.use('/api/home', UserExtractor, home);
+app.use('/api/categories', categories);
+app.use('/api/categorieget', categorieget);
+app.use('/api/verificationAdmin', verificationAdmin);
+//app.use('/api/adminpersonalitation', authAdmin, adminpersonalitation);
+app.use('/api/personalitation', personalitation);
+app.use('/api/getCategory', getCategory);
+app.use('/api/saveDb', saveDb);
+app.use('/api/getproducts', getProducts);
+app.use('/api/updateDb', updateDb);
+app.use('/api/deleteProduct', deleteProduct);
+app.use('/api/deleteCookie', deleteCookie);
+
+app.use('/api/edit', edit);
+
+
+module.exports = app;
+
+
+
