@@ -21,7 +21,7 @@ const categories = require('./controllers/categories');
 const categorieget = require('./controllers/categorieget');
 const verificationAdmin = require('./controllers/verificationAdmin');
 
-const saveDb = require('./controllers/saveDb');
+const saveDbShirtsCaps = require('./controllers/saveDbShirtsCaps');
 const getProducts = require('./controllers/getProducts');
 const  updateDb = require('./controllers/updateDb');
 const deleteProduct = require('./controllers/deleteProduct');
@@ -79,7 +79,7 @@ app.use('/api/verificationAdmin', verificationAdmin);
 //app.use('/api/adminpersonalitation', authAdmin, adminpersonalitation);
 app.use('/api/personalitation', personalitation);
 app.use('/api/getCategory', getCategory);
-app.use('/api/saveDb', saveDb);
+app.use('/api/saveDbShirtsCaps', saveDbShirtsCaps);
 app.use('/api/getproducts', getProducts);
 app.use('/api/updateDb', updateDb);
 app.use('/api/deleteProduct', deleteProduct);
