@@ -105,18 +105,18 @@ const firstScreen = (data) => {
 <!-- para tamaño de pc -->
 <main class="hidden md:w-[90%] md:h-[28rem] border-[#b6b4b9] border bg-white md:rounded-md md:flex xl:w-[80rem]">
     
-    <div class="border w-[15%] h-full rounded-l-md border-[#b6b4b9] border-t-0 border-l-0 border-b-0">
+    <div id="collection-images" class="border w-[15%] h-full rounded-l-md border-[#b6b4b9] border-t-0 border-l-0 border-b-0">
         
         <div class="h-1/3 w-full">
-          <img src="${data.url1}" class="w-full h-full" alt="img" id="img1-pc">
+          <img src="${data.url1}" class="w-full hover:scale-105 duration-300 cursor-pointer rounded-l-md h-full" alt="img" id="img1-pc">
         </div>
 
         <div class="h-1/3 w-full">
-         <img src="${data.url2}" class="w-full h-full"  alt="img" id="img2-pc">
+         <img src="${data.url2}" class="w-full hover:scale-105 duration-300 cursor-pointer h-full"  alt="img" id="img2-pc">
         </div>
 
         <div class="h-1/3 w-full">
-         <img src="${data.url3}" class="w-full h-full"  alt="img" id="img3-pc">
+         <img src="${data.url3}" class="w-full hover:scale-105 duration-300 cursor-pointer rounded-l-md h-full"  alt="img" id="img3-pc">
         </div>
 
     </div>
@@ -128,7 +128,7 @@ const firstScreen = (data) => {
         <!-- <p class="h-[14%] w-full flex justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0">Marca</p> -->
         <input type="text" class="h-[14%] w-full flex justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none text-center" readonly value="${data.brand}">
         
-        <textarea name="" id="description-pc" class="h-[14%] outline-none break-words w-full border flex justify-center items-center pl-4 border-[#b6b4b9] border-l-0 border-r-0 border-b-0 pr-3" readonly>${data.description}</textarea>
+        <textarea name="" id="description-pc" class="h-[14%] outline-none break-words w-full border flex justify-center items-center pl-4 resize-none border-[#b6b4b9] border-l-0 border-r-0 border-b-0 pr-3" readonly>${data.description}</textarea>
      
         <div class="h-[14%] w-full flex items-center justify-center border border-[#b6b4b9] border-l-0 border-r-0">
             <span class="w-auto">Precio:</span>
@@ -200,9 +200,16 @@ const firstScreen = (data) => {
   observer.observe(img2);
   observer.observe(img3);
 
-  //funcionamiento de los botones e imagenes
 
+  const colletionImages = document.getElementById('collection-images');
+  const imageP = document.getElementById('imgt-pc');
+  //iteracion con las imagenes cuando el usuario hace click se encarga de poner la imagen del lado del tamaño grande
+  colletionImages.addEventListener('click', e => {
+    //console.log(e.target.src);
 
+    imageP.src = e.target.src;
+
+  });
 };
 
 //traer los productos de la base de datos
