@@ -10,23 +10,20 @@ const body = document.getElementById('body');
   const url = document.URL;
   const urlObject = new URL(url).pathname.split('/')[2];
 
-  const getInformation = await axios.get('/api/personalitation');
-
-  const extractProduct = await axios.get(`/api/edit/${urlObject}`);
-
-  console.log(extractProduct.data.extract);
-
-  if(getInformation.data.data === 'yes'){
-    firstScreen();
-  }else{
+  try {
+    //verifica si el token no esta vencido
+    const getInformation = await axios.get('/api/personalitation');
+    verificationProduct(urlObject);
+  } catch (error) {
+    console.log(error.message);
     noScreen();
-    console.log('no');
   }
+
 })();
 //imprime el screen principal
-const firstScreen = () => {
-  body.setAttribute('class', 'md:bg-[#6980a2] h-auto font-principal font-bold flex md:justify-center flex-col items-center');
-  body.innerHTML = `   <div class="font-principal bg-[#6980a2] w-full h-12 text-white flex justify-center items-center">
+const firstScreen = (data) => {
+  body.setAttribute('class', 'md:bg-slate-400 h-auto font-principal font-bold flex md:justify-center flex-col items-center');
+  body.innerHTML = `   <div class="font-principal bg-slate-400 w-full h-12 text-white flex justify-center items-center">
         <h1>nombre de la categoria</h1>
     </div>
 <!-- para movil -->
@@ -36,13 +33,13 @@ const firstScreen = () => {
     <ul id="container-ul" class="flex max-w-[300%] w-[300%] h-[26rem]">
            
         <li class="list-none w-full flex justify-center snap-center">
-            <img id="img1" src="https://i.pinimg.com/564x/17/55/f6/1755f6bed8d7ae7c22c8e0b612a18281.jpg" alt="img" class="w-[80%] rounded-md mt-4 h-96 shadow-lg shadow-cyan-500/50"></li>
+            <img id="img1" src="${data.url1}" alt="img" class="w-[80%] rounded-md mt-4 h-96 shadow-lg shadow-cyan-500/50"></li>
 
         <li id="box" class="list-none w-full flex justify-center snap-center">
-            <img id="img2" src="https://i.pinimg.com/564x/47/42/06/474206b70bbac7e19d2cba297fbefcb9.jpg" alt="img" class="w-[80%] rounded-md mt-4 h-96 shadow-lg shadow-cyan-500/50"></li>
+            <img id="img2" src="${data.url2}" alt="img" class="w-[80%] rounded-md mt-4 h-96 shadow-lg shadow-cyan-500/50"></li>
 
         <li class="list-none w-full flex justify-center snap-center">
-            <img id="img3" src="https://i.pinimg.com/564x/76/0b/92/760b928dfe87e1c194b9da880a56824c.jpg" alt="img" class="w-[80%] rounded-md mt-4 h-96 shadow-lg shadow-cyan-500/50"></li>
+            <img id="img3" src="${data.url2}" alt="img" class="w-[80%] rounded-md mt-4 h-96 shadow-lg shadow-cyan-500/50"></li>
     </ul>
 
 </main>
@@ -59,18 +56,18 @@ const firstScreen = () => {
         <div class="w-full h-8">
             <span class="text-slate-600">Marca:</span>
             <!-- bg-slate-400 -->
-            <input type="text" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="brand-movile" value="Nike">
+            <input type="text" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="brand-movile" value="${data.brand}">
         </div>
         
         <div class="flex flex-col">
             <span class="text-slate-600">Descripcion:</span>
-            <textarea name="" class="outline-none" id="" rows="3" readonly>ddd</textarea>
+            <textarea name="" class="outline-none" id="" rows="3" readonly>${data.description}</textarea>
             <!-- <input type="text" class="justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none text-center" id="description-movile"> -->
         </div>
 
         <div class="w-full h-8">
             <span class="text-slate-600">Precio:</span>
-            <input type="number" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="price-movile" value="5">
+            <input type="text" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="price-movile" value="$${data.price}">
         </div>
     
 
@@ -90,7 +87,7 @@ const firstScreen = () => {
 
         <div class="w-full h-8">
             <span class="text-slate-600">Cantidad Total:</span>
-            <input type="number" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="amount-t-movile" value="5">
+            <input type="number" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="amount-t-movile" value="${data.totalquanty}">
         </div>
     
         <div class="w-full flex justify-center">
@@ -111,31 +108,31 @@ const firstScreen = () => {
     <div class="border w-[15%] h-full rounded-l-md border-[#b6b4b9] border-t-0 border-l-0 border-b-0">
         
         <div class="h-1/3 w-full">
-          <img src="" alt="img" id="img1-pc">
+          <img src="${data.url1}" class="w-full h-full" alt="img" id="img1-pc">
         </div>
 
         <div class="h-1/3 w-full">
-         <img src="" alt="img" id="img2-pc">
+         <img src="${data.url2}" class="w-full h-full"  alt="img" id="img2-pc">
         </div>
 
         <div class="h-1/3 w-full">
-         <img src="" alt="img" id="img3-pc">
+         <img src="${data.url3}" class="w-full h-full"  alt="img" id="img3-pc">
         </div>
 
     </div>
 
     <div class="border w-1/2 h-full flex justify-center border-t-0 border-l-0 border-b-0 border-[#b6b4b9]">
-        <img id="imgt-pc" src="https://i.pinimg.com/736x/6e/4f/ad/6e4fade85181fdcd6305a4e738fe5612.jpg" alt="img" class="w-4/5 h-full">
+        <img id="imgt-pc" src="${data.url1}" alt="img" class="w-4/5 h-full">
     </div>
     <div class="border w-[35%] h-full rounded-r-md flex flex-col items-center">
         <!-- <p class="h-[14%] w-full flex justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0">Marca</p> -->
-        <input type="text" class="h-[14%] w-full flex justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none text-center" readonly value="Marca">
+        <input type="text" class="h-[14%] w-full flex justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none text-center" readonly value="${data.brand}">
         
-        <textarea name="" id="description-pc" class="h-[14%] outline-none break-words w-full border flex justify-center items-center pl-4 border-[#b6b4b9] border-l-0 border-r-0 border-b-0 pr-3" readonly>d</textarea>
+        <textarea name="" id="description-pc" class="h-[14%] outline-none break-words w-full border flex justify-center items-center pl-4 border-[#b6b4b9] border-l-0 border-r-0 border-b-0 pr-3" readonly>${data.description}</textarea>
      
         <div class="h-[14%] w-full flex items-center justify-center border border-[#b6b4b9] border-l-0 border-r-0">
             <span class="w-auto">Precio:</span>
-            <input type="number" id=price-pc" readonly value="5" class="outline-none text-justify w-16 flex justify-center items-center">
+            <input type="text" id=price-pc" readonly value=" $${data.price}" class="outline-none text-justify w-16 flex justify-center items-center">
         </div>
 
         <div class="h-[14%] border flex items-center w-full justify-center gap-4 border-[#b6b4b9] border-l-0 border-r-0 border-b-0">
@@ -149,13 +146,13 @@ const firstScreen = () => {
 
         <div class="h-[14%] w-full flex items-center justify-center border border-[#b6b4b9] border-l-0 border-r-0">
             <span class="w-auto">Cantidad:</span>
-            <input type="text" id="amount-pc" readonly value="5" class="outline-none text-justify w-16 flex justify-center items-center">
+            <input type="text" id="amount-pc" readonly value=" ${data.s}" class="outline-none text-justify w-16 flex justify-center items-center">
         </div>
        
       
         <div class="h-[14%] w-full flex items-center justify-center border border-[#b6b4b9] border-l-0 border-r-0">
             <span class="w-auto">Cantidad total:</span>
-            <input type="text" id="amount-t-pc" readonly value="5" class="outline-none text-justify w-16 flex justify-center items-center">
+            <input type="text" id="amount-t-pc" readonly value=" ${data.totalquanty}" class="outline-none text-justify w-16 flex justify-center items-center">
         </div>
         
         <div class="flex items-center justify-center w-full h-[14%]">
@@ -208,13 +205,28 @@ const firstScreen = () => {
 
 };
 
+//traer los productos de la base de datos
+const verificationProduct = async (urlId) => {
+
+  try {
+    //extraer las carateristicas del producto de la base de datos
+    const extractProduct = await axios.get(`/api/edit/${urlId}`);
+    firstScreen(extractProduct.data.extract);
+
+  } catch (error) {
+    console.log(error.message);
+  }
+
+};
+
 //<p class="h-[14%] w-full flex justify-center items-center border border-[#b6b4b9] border-l-0 border-r-0">Cantidad total:</p>
 
 
-
+//si no encuentra el token pasa por aca
 const noScreen = () => {
 
   body.setAttribute('class', 'md:bg-[#6980a2] h-screen font-principal font-bold flex justify-center items-center');
   body.innerHTML = `<h1 class="text-red-600">Not Found 404</h1>
  `;
 };
+

@@ -12,7 +12,7 @@ getAdmin.get('/', async (req, res) => {
     return res.status(200).json({ data:'yes' });
   }else{
     console.log('nolsa');
-    return res.status(200).json({ data:'404 not found' });
+    return res.status(400).json({ data:'404 not found' });
   }
 
 
