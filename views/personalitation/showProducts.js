@@ -22,8 +22,8 @@ const showProducts = async (spanish) => {
     <input type="text" class="bg-slate-200 text-center outline-none font-principal font-bold" value="$${element.price}" readonly>
    
     <input type="text" class="bg-slate-200 text-center outline-none font-principal font-bold" value="${element.totalquanty} Unidades" readonly>
-    <button class="bg-green-800 w-56 h-12 rounded-lg hover:scale-110 duration-300 text-white font-bold font-principal">Editar</button>
-    <button class="bg-red-700 w-56 h-12 rounded-lg hover:scale-110 duration-300 text-white font-bold font-principal">Borrar producto</button>
+    <button class="bg-slate-500 w-56 h-12 rounded-lg hover:scale-110 duration-300 text-white font-bold font-principal">Editar</button>
+    <button class="bg-red-900 w-56 h-12 rounded-lg hover:scale-110 duration-300 text-white font-bold font-principal">Borrar producto</button>
     </div>`;
       //<a href="../editproduct/index.html"></a>
       //<input type="submit"></input>
@@ -48,7 +48,7 @@ const showProducts = async (spanish) => {
 
   body.innerHTML = `<h1 class="font-bold text-4xl">${spanish}</h1>
     <button id="addproduct" class="bg-slate-600 w-56 h-12 rounded-lg hover:scale-110 duration-300 text-white font-bold">Agregar producto</button>
-    <button id="return-products" class="bg-red-600 w-56 h-12 rounded-lg hover:scale-110 duration-300 text-white font-bold">Regresar</button>
+    <button id="return-products" class="bg-slate-800 w-56 h-12 rounded-lg hover:scale-110 duration-300 text-white font-bold">Regresar</button>
   
     
     `;
