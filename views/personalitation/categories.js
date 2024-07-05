@@ -62,6 +62,7 @@ const shirtsorcaps = (cate) => {
    </form>
     </main>`;
 
+
   //<input id="category-text" type="text" placeholder="categoria" class="rounded-lg outline-none pl-4 w-80 pr-4"></input>
   //tag de las imagenes
   const imageUpload = document.getElementById('image-upload');
@@ -138,7 +139,6 @@ const shirtsorcaps = (cate) => {
   const price = document.getElementById('precio');
   const amountt = document.getElementById('cantidadt');
   const addProductBtn = document.getElementById('addProductbtn');
-
 
 
   const form = document.getElementById('form_data');

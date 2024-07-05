@@ -44,6 +44,8 @@ const showProducts = async (spanish) => {
   //https://drive.google.com/uc?id=19OxqrZmFxR2TOnwExa3rzCZEUlSvEWKL
   //https://drive.google.com/uc?export=view&id=19OxqrZmFxR2TOnwExa3rzCZEUlSvEWKL
   //https://lh3.googleusercontent.com/d/19OxqrZmFxR2TOnwExa3rzCZEUlSvEWKL=s50 este si sin el s=50
+
+  //cabecera de mostrar productos
   body.setAttribute('class', 'bg-slate-300 w-full flex flex-col items-center justify-center h-auto gap-8');
 
   body.innerHTML = `<h1 class="font-bold text-4xl">${spanish}</h1>

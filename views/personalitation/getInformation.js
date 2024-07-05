@@ -59,10 +59,6 @@ body.addEventListener('click', e => {
   if(editarBorrarUpdate === 'Editar'){
     editProduct(e.target);//personalitation.js
   }
-  //actualizar producto
-  if(editarBorrarUpdate === 'Guardar'){
-    UpdateProduct(e.target);//personalitation.js
-  }
 
   if(editarBorrarUpdate === 'Borrar producto'){
     deleteProduct(e.target);//deleteProduct.js
