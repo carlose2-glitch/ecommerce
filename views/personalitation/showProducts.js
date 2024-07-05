@@ -19,9 +19,9 @@ const showProducts = async (spanish) => {
     <img id="${element._id}" src="${element.url1}" class="w-full md:h-80 h-60 rounded" alt="img">
     <input type="text" class="bg-slate-200 text-center outline-none font-principal font-bold" value="${element.description}" readonly>
 
-    <p class="bg-slate-200 text-center outline-none font-principal font-bold">$${element.price}</p>
+    <input type="text" class="bg-slate-200 text-center outline-none font-principal font-bold" value="$${element.price}" readonly>
    
-    <input type="number" class="bg-slate-200 text-center outline-none font-principal font-bold" value="${element.totalquanty}" readonly>
+    <input type="text" class="bg-slate-200 text-center outline-none font-principal font-bold" value="${element.totalquanty} Unidades" readonly>
     <button class="bg-green-800 w-56 h-12 rounded-lg hover:scale-110 duration-300 text-white font-bold font-principal">Editar</button>
     <button class="bg-red-700 w-56 h-12 rounded-lg hover:scale-110 duration-300 text-white font-bold font-principal">Borrar producto</button>
     </div>`;
