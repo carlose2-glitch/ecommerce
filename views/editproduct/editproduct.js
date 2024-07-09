@@ -124,39 +124,51 @@ const firstScreen = (data) => {
     <div class="border w-1/2 h-full flex justify-center border-t-0 border-l-0 border-b-0 border-[#b6b4b9]">
         <img id="imgt-pc" src="${data.url1}" alt="img" class="w-4/5 h-full">
     </div>
-    <div class="border w-[35%] h-full rounded-r-md flex flex-col items-center">
+    <div class="border w-[35%] h-full rounded-r-md flex flex-col items-center" id="controllers-btn">
         <!-- <p class="h-[14%] w-full flex justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0">Marca</p> -->
-        <input type="text" class="h-[14%] w-full flex justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none text-center" readonly value="${data.brand}">
+        <input type="text" id="brand" class="h-[14%] w-full flex justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none text-center" readonly value="${data.brand}">
         
         <textarea name="" id="description-pc" class="h-[14%] outline-none break-words w-full border flex justify-center items-center pl-4 resize-none border-[#b6b4b9] border-l-0 border-r-0 border-b-0 pr-3" readonly>${data.description}</textarea>
      
         <div class="h-[14%] w-full flex items-center justify-center border border-[#b6b4b9] border-l-0 border-r-0">
-            <span class="w-auto">Precio:</span>
-            <input type="text" id=price-pc" readonly value=" $${data.price}" class="outline-none text-justify w-16 flex justify-center items-center">
+            <span class="w-auto">Precio: $</span>
+            <input type="number" id="price-pc" readonly value="${data.price}" class="outline-none text-justify w-16 flex justify-center items-center">
         </div>
 
         <div class="h-[14%] border flex items-center w-full justify-center gap-4 border-[#b6b4b9] border-l-0 border-r-0 border-b-0">
             <p class="">Talla:</p>
-            <button class="border w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">S</button>
-            <button class="border w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">M</button>
-            <button class="border w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">L</button>
-            <button class="border w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">XL</button>
-            <button class="border w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">XXL</button>
+            <button id="s"  class="border h-10 w-10 rounded-md text-black bg-slate-500  hover:scale-110 duration-300">
+            <p class="flex justify-center">S</p>
+            <p class="hidden">${data.s}</p>
+            </button>
+            <button id="m" class="border h-10 w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">
+            <p class="flex justify-center">M</p>
+            <p class="hidden">${data.m}</p>
+            </button>
+            <button id="l" class="border h-10 w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">
+            <p class="flex justify-center">L</p>
+            <p class="hidden">${data.l}</p>
+            </button>
+            <button id="xl" class="border h-10 w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">
+            <p class="flex justify-center">XL</p>
+            <p class="hidden">${data.xl}</p>
+            </button>
+            <button id="t" class="border w-10 rounded-md text-white bg-slate-500 h-10 hover:scale-110 duration-300">T</button>
         </div>
 
         <div class="h-[14%] w-full flex items-center justify-center border border-[#b6b4b9] border-l-0 border-r-0">
             <span class="w-auto">Cantidad:</span>
-            <input type="text" id="amount-pc" readonly value=" ${data.s}" class="outline-none text-justify w-16 flex justify-center items-center">
+            <input type="number" id="amount-pc" readonly value="${data.s}" class="[-webkit-appearance:none] outline-none text-justify w-16 flex justify-center items-center">
         </div>
        
       
         <div class="h-[14%] w-full flex items-center justify-center border border-[#b6b4b9] border-l-0 border-r-0">
             <span class="w-auto">Cantidad total:</span>
-            <input type="text" id="amount-t-pc" readonly value=" ${data.totalquanty}" class="outline-none text-justify w-16 flex justify-center items-center">
+            <input type="text" id="amount-t-pc" readonly value="${data.totalquanty}" class="outline-none text-justify w-16 flex justify-center items-center">
         </div>
         
         <div class="flex items-center justify-center w-full h-[14%]">
-            <button class="bg-[#3483fa] w-40 rounded-md h-10 hover:scale-110 duration-300 text-white font-principal">Editar</button>
+            <button class="bg-[#3483fa] w-40 rounded-md h-10 hover:scale-110 duration-300 text-white font-principal" id="edit">Editar</button>
         </div>
        
     </div>
@@ -210,6 +222,92 @@ const firstScreen = (data) => {
     imageP.src = e.target.src;
 
   });
+
+
+  //funcion de modificacion de los inputs
+  const edit = document.getElementById('edit');
+
+  edit.addEventListener('click', e => {
+    //console.log(e.target.parentElement.parentElement.children[0]);
+    //console.log(e.target.parentElement.parentElement.children[1]);
+    //console.log(e.target.parentElement.parentElement.children[2].children[1]);
+    //console.log(e.target.parentElement.parentElement.children[4].children[1]);
+    editInputAndSave(e.target, data);
+  });
+
+  //botones de la seleccionde de las tallas
+  const s = document.getElementById('s');
+  const m = document.getElementById('m');
+  const l = document.getElementById('l');
+  const xl = document.getElementById('xl');
+  const t = document.getElementById('t');
+  const amountPc = document.getElementById('amount-pc');
+
+
+
+  t.addEventListener('click', e => {
+
+    if(s.children[0].attributes[0].nodeValue.includes('flex')){
+
+      s.children[0].setAttribute('class', 'hidden');
+      s.children[1].setAttribute('class', 'flex justify-center');
+      m.children[0].setAttribute('class', 'hidden');
+      m.children[1].setAttribute('class', 'flex justify-center');
+      l.children[0].setAttribute('class', 'hidden');
+      l.children[1].setAttribute('class', 'flex justify-center');
+      xl.children[0].setAttribute('class', 'hidden');
+      xl.children[1].setAttribute('class', 'flex justify-center');
+
+    }else{
+      s.children[0].setAttribute('class', 'flex justify-center');
+      s.children[1].setAttribute('class', 'hidden');
+      m.children[0].setAttribute('class', 'flex justify-center');
+      m.children[1].setAttribute('class', 'hidden');
+      l.children[0].setAttribute('class', 'flex justify-center');
+      l.children[1].setAttribute('class', 'hidden');
+      xl.children[0].setAttribute('class', 'flex justify-center');
+      xl.children[1].setAttribute('class', 'hidden');
+
+    }
+
+  });
+  //iteracion de los botones en las tallas
+  s.addEventListener('click', e => {
+    amountPc.value = data.s;
+    colorBlack(s, m, l, xl);
+    //console.log(s.children[0]);
+  });
+  m.addEventListener('click', e => {
+    amountPc.value = data.m;
+    colorBlack(m, s, l, xl);
+  });
+  l.addEventListener('click', e => {
+    amountPc.value = data.l;
+    colorBlack(l, s, m, xl);
+  });
+  xl.addEventListener('click', e => {
+    amountPc.value = data.xl;
+    colorBlack(xl, m, s, l);
+  });
+
+
+
+};
+
+const colorBlack = (a, b, c, d) => {
+
+  const array = [a, b, c, d];
+
+  for(let value in array){
+
+    if(value === '0'){
+      array[value].setAttribute('class', 'border h-10 w-10 rounded-md text-black bg-slate-500  hover:scale-110 duration-300');
+
+    }else{
+      array[value].setAttribute('class', 'border h-10 w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300');
+    }
+  }
+
 };
 
 //traer los productos de la base de datos
@@ -236,4 +334,6 @@ const noScreen = () => {
   body.innerHTML = `<h1 class="text-red-600">Not Found 404</h1>
  `;
 };
+//input del evento de seleccion de las tallas
+
 
