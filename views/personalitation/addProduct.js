@@ -7,9 +7,13 @@ const addProduct = (category) => {
   body.setAttribute('class', 'bg-slate-300 w-full flex flex-col items-center justify-center h-auto gap-8');
   const categories = category.toLowerCase();
 
-  if(categories === 'camisas'){
+  if(categories === 'camisas' || categories === 'gorras'){
     //funcion para agregar una camisa o gorra
     shirtsorcaps(categories);
+  }
+
+  if(categories === 'relojes'){
+    addWatch(categories);
   }
 
   //evento click o enter del formulario una vez que todo los requerimientos esten llenos pasa por aqui

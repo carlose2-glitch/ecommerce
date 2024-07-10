@@ -24,7 +24,7 @@ const body = document.getElementById('body');
 const firstScreen = (data) => {
   body.setAttribute('class', 'md:bg-slate-400 h-auto font-principal font-bold flex md:justify-center flex-col items-center');
   body.innerHTML = `   <div class="font-principal bg-slate-400 w-full h-12 text-white flex justify-center items-center">
-        <h1>nombre de la categoria</h1>
+    
     </div>
 <!-- para movil -->
 

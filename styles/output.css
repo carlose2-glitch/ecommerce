@@ -904,10 +904,6 @@ input[type="number"]::-webkit-inner-spin-button,
   width: 100vw;
 }
 
-.min-w-10 {
-  min-width: 2.5rem;
-}
-
 .max-w-7xl {
   max-width: 80rem;
 }

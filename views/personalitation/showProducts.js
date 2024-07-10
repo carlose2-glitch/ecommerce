@@ -67,7 +67,12 @@ const showProducts = async (spanish) => {
 //obtiene los productos de la base de datos
 const productsGet = async (category) => {
 
+  try {
+    const products = await axios.post('/api/getProducts', { category });
+    return products.data.get;
+  } catch (error) {
 
-  const products = await axios.post('/api/getProducts', { category });
-  return products.data.get;
+    return error.message;
+
+  }
 };

@@ -26,8 +26,12 @@ const notFound = () => {
 const editProduct = async (product) => {
   // id del producto para buscar en la base de datos
   const idProduct = product.parentElement.children[0].id;
-  window.location.href = `../editproduct/${idProduct}`;
-  //const edit = await axios.get(`/api/edit/${idProduct}`);
+  const category = product.parentElement.parentElement.parentElement.children[0].textContent.toLowerCase();
+  if(category === 'gorras' || category === 'camisas'){
+    console.log('si');
+    window.location.href = `../editproduct/${idProduct}`;
+  }
+
 
 };
 

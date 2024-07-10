@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+
+
 const mongoose = require('mongoose');
 const path = require('path');
 const usersRouter = require('./controllers/users');
@@ -27,6 +29,7 @@ const  updateDb = require('./controllers/updateDb');
 const deleteProduct = require('./controllers/deleteProduct');
 const edit = require('./controllers/edit');
 const deleteCookie = require('./controllers/deleteCookie');
+const saveWatch = require('./controllers/saveWatch');
 //conexion a mongo db
 
 (async() => {
@@ -43,6 +46,8 @@ const deleteCookie = require('./controllers/deleteCookie');
 
   }
 })();
+
+const link = ['http://localhost:3000'];
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
@@ -84,6 +89,7 @@ app.use('/api/getproducts', getProducts);
 app.use('/api/updateDb', updateDb);
 app.use('/api/deleteProduct', deleteProduct);
 app.use('/api/deleteCookie', deleteCookie);
+app.use('/api/saveWatch', saveWatch);
 
 app.use('/api/edit', edit);
 

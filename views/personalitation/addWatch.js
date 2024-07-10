@@ -1,9 +1,8 @@
-//categoria camisas
+const addWatch = (c) => {
 
-const shirtsorcaps = (cate) => {
-  body.innerHTML = ` <h1 class='text-4xl font-bold pt-8'>Agregar producto</h1>
+  body.innerHTML = `<h1 class='text-4xl font-bold pt-8'>Agregar producto</h1>
     <main class="pb-8 w-full flex justify-center items-center">
-   <form action="" class="flex flex-col items-center gap-4 w-[90%]" id="form_data">
+   <form action="" class="flex flex-col items-center gap-4 w-[90%]" id="form-data">
   
     <div class="flex gap-4 justify-center items-center flex-wrap">
   
@@ -46,13 +45,14 @@ const shirtsorcaps = (cate) => {
     <textarea name="description" class="w-80 resize-none outline-none pl-4 pr-4 rounded-lg" id="description" placeholder="descripcion" id="description"></textarea>
 
     <div class="flex flex-wrap flex-col justify-center gap-4">
-     <input id="marca" type="text" placeholder="marca" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="tallas" type="number" placeholder="Cantidad Talla S" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="tallam" type="number" placeholder="Cantidad Talla M" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="tallal" type="number" placeholder="Cantidad Talla L" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="tallaxl" type="number" placeholder="Cantidad Talla XL" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="precio" type="number" placeholder="precio" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="cantidadt" type="number" placeholder="cantidad total" class="rounded-lg outline-none pl-4 pr-4 w-80"> </div>
+     <input id="marca" type="text" placeholder="marca y modelo" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="mm-38" type="number" placeholder="38 mm cantidad" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="mm-39" type="number" placeholder="39 mm cantidad" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="mm-40" type="number" placeholder="40 mm cantidad" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="mm-41" type="number" placeholder="41 mm cantidad" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="price" type="number" placeholder="precio" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="cantidadt" type="number" placeholder="cantidad total" class="rounded-lg outline-none pl-4 pr-4 w-80">
+      </div>
     
     
     </div>
@@ -129,73 +129,74 @@ const shirtsorcaps = (cate) => {
     }
 
   });
-  //tags del formulario para extraer los valores
+
   const description = document.getElementById('description');
-  const brand = document.getElementById('marca');
-  const amountS = document.getElementById('tallas');
-  const amountM = document.getElementById('tallam');
-  const amountL = document.getElementById('tallal');
-  const amountXL = document.getElementById('tallaxl');
-  const price = document.getElementById('precio');
-  const amountt = document.getElementById('cantidadt');
+  const brandAndModel = document.getElementById('marca');
+  const mm38 = document.getElementById('mm-38');
+  const mm39 = document.getElementById('mm-39');
+  const mm40 = document.getElementById('mm-40');
+  const mm41 = document.getElementById('mm-41');
+  const price = document.getElementById('price');
+  const amountT = document.getElementById('cantidadt');
   const addProductBtn = document.getElementById('addProductbtn');
 
 
-  const form = document.getElementById('form_data');
+
+  const form = document.getElementById('form-data');
 
 
   form.addEventListener('submit', async e => {
+
     e.preventDefault();
 
     let booleanimages = false;
     let booleantexts = false;
 
-    //evalua si las imagenes estan cargadas
     if(inputFile.files[0] && inputFileFront.files[0] && inputFilePersonalitation.files[0]){
       booleanimages = true;
     }else{
       booleanimages = false;
     }
 
-    const arrayForm = [description.value, brand.value, amountS.value, amountM.value, amountL.value, amountXL.value, price.value, amountt.value];
-    //evalua el input del formulario que no este vacio
-    for(let value of arrayForm){
-      if (value.trim()){
-        booleantexts= true;
+    const arrayForm = [description.value, brandAndModel.value, mm38.value, mm39.value, mm40.value, mm41.value, price.value, amountT.value];
+
+
+    for (let value of arrayForm){
+      if(value.trim()){
+        booleantexts = true;
       }else{
         booleantexts = false;
         break;
       }
     }
+    console.log(booleanimages);
+    console.log(booleantexts);
 
-    if(booleanimages && booleantexts){//si las imagenes y los textos son cargados de manera correcta pasa por aca
-      // console.log('verdadero');
-      //manipulacion de estilos del boton
+    if(booleanimages && booleantexts){
+
+      const getUrlImages = await urlImages(inputFile.files[0], inputFileFront.files[0], inputFilePersonalitation.files[0]);
       addProductBtn.setAttribute('disabled', '');
       addProductBtn.setAttribute('class', 'flex bg-slate-600 rounded-lg font-bold text-white h-8 hover:scale-110 duration-300 w-72 justify-center items-center');
       addProductBtn.innerHTML = '<svg class="animate-spinn h-5 w-5 rounded-xl mx-2 border-2 border-indigo-400 border-r-white"></svg><p class="text-white mr-2"> Cargando...</p>';
-      //crear url de las imagenes
-      const getUrlImages = await urlImages(inputFile.files[0], inputFileFront.files[0], inputFilePersonalitation.files[0]);
-      console.log(getUrlImages);
+
       const data = {
-        category: cate,
+        category: c,
         description: description.value,
-        brand: brand.value,
-        s: amountS.value,
-        m: amountM.value,
-        l: amountL.value,
-        xl: amountXL.value,
+        brand: brandAndModel.value,
+        mm38: mm38.value,
+        mm39: mm39.value,
+        mm40: mm40.value,
+        mm41: mm41.value,
         url1: getUrlImages[0].url,
         url2: getUrlImages[1].url,
         url3: getUrlImages[2].url,
         price: price.value,
-        cantidadT: amountt.value,
-
+        amountt: amountT.value,
       };
 
       try {
-        const saveDb = await axios.post('/api/saveDbShirtsCaps', data);
-        //console.log(saveDb);
+        const saveDb = await axios.post('/api/saveWatch', data);
+        console.log(saveDb);
 
       } catch (error) {
         console.log(error.message);
@@ -215,44 +216,11 @@ const shirtsorcaps = (cate) => {
 
       });
 
-
     }else{
-      {
-        //funcion que se encarga de subrayar los bordes de rojo en dado caso que haya algun formulario vacio
-        evalueform(inputFile, inputFileFront, inputFilePersonalitation, brand, description, price, amountt, amountS, amountM, amountL, amountXL);
-      }
-
+      console.log('hello');
     }
+
+
   });
-};
-
-//funcion que se encarga de subrayar los bordes de rojo en dado caso que haya algun formulario vacio
-const evalueform = (images, imagesfront, imagepersonalitation, brand, description, price, cantidadt, s, m, l, xl)  => {
-
-  imagesverification(images, imagesfront, imagepersonalitation);
-  textverification( brand, description, price, cantidadt, s, m, l, xl);
-
-};
-
-//se encarga de marcar de color rojo las imagenes que no esten cargadas
-const imagesverification = (images, ifront, ip) => {
-
-  const  array= [images, ifront, ip];
-  for(let value of array){
-    if(!value.files[0]){
-      value.parentElement.children[0].setAttribute('class', 'w-[20rem] rounded-lg h-60 border-2 border-rose-500');
-    }
-  }
-
-};
-
-//se encarga de marcar en color rojo los textos del formulario
-const textverification = ( brand, description, price, cantidadt, s, m, l, xl) => {
-  const array = [brand, description, price, cantidadt, s, m, l, xl];
-  for(let value of array){
-    if(!value.value.trim()){
-      value.setAttribute('class', 'rounded-lg outline-none pl-4 pr-4 w-80 border-2 border-rose-500');
-    }
-  }
 
 };
