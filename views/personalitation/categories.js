@@ -251,7 +251,7 @@ const textverification = ( brand, description, price, cantidadt, s, m, l, xl) =>
   const array = [brand, description, price, cantidadt, s, m, l, xl];
   for(let value of array){
     if(!value.value.trim()){
-      value.setAttribute('class', 'rounded-lg outline-none pl-4 pr-4 w-80 border-2 border-rose-500');
+      value.setAttribute('class', 'resize-none rounded-lg outline-none pl-4 pr-4 w-80 border-2 border-rose-500');
     }
   }
 

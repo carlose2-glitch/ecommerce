@@ -218,6 +218,7 @@ const addWatch = (c) => {
 
     }else{
       console.log('hello');
+      evalueform(inputFile, inputFileFront, inputFilePersonalitation, brandAndModel, description, price, amountT, mm38, mm39, mm40, mm41);
     }
 
 
