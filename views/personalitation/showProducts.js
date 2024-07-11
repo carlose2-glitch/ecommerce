@@ -4,7 +4,10 @@ const showProducts = async (spanish) => {
   const main = document.createElement('main');
   main.setAttribute('class', 'flex gap-4 h-auto w-full justify-center flex-wrap');
 
-  const getProducts = await productsGet(spanish);//obtiene los productos de la base de datos
+  const getProducts = await evaluate(spanish);
+  console.log(getProducts);
+
+  //const getProducts = await productsGet(spanish);//obtiene los productos de la base de datos
   //console.log(getProducts);
   //evalua si hay un producto por esta categoria
   if(getProducts.length > 0){
@@ -64,6 +67,21 @@ const showProducts = async (spanish) => {
   });
   //editar el producto
 };
+
+
+const evaluate = async (category) => {
+
+  if(category === 'Relojes'){
+
+    return getWatch(category);
+  }
+
+  if(category === 'Camisas' || category === 'Gorras'){
+    console.log('camisas o gorras');
+    return productsGet(category);
+  }
+
+};
 //obtiene los productos de la base de datos
 const productsGet = async (category) => {
 
@@ -75,4 +93,15 @@ const productsGet = async (category) => {
     return error.message;
 
   }
+};
+//obtener relojes
+const getWatch = async (category) => {
+
+  try {
+    const products = await axios.post('/api/getWatch', { category });
+    return products.data.get;
+  } catch (error) {
+    return error.message;
+  }
+
 };

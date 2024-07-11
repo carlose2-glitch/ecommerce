@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const schemawatch = new mongoose.Schema({
   category: String,
   description: String,
-  brandandmodel: String,
+  brand: String,
   mm38: String,
   mm39: String,
   mm40: String,
@@ -12,7 +12,7 @@ const schemawatch = new mongoose.Schema({
   url2: String,
   url3: String,
   price: String,
-  amounttotal: String,
+  totalquanty: String,
 });
 
 const watch = mongoose.model('watch', schemawatch);

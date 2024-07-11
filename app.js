@@ -30,6 +30,7 @@ const deleteProduct = require('./controllers/deleteProduct');
 const edit = require('./controllers/edit');
 const deleteCookie = require('./controllers/deleteCookie');
 const saveWatch = require('./controllers/saveWatch');
+const getWatch = require('./controllers/getWatch');
 //conexion a mongo db
 
 (async() => {
@@ -90,6 +91,7 @@ app.use('/api/updateDb', updateDb);
 app.use('/api/deleteProduct', deleteProduct);
 app.use('/api/deleteCookie', deleteCookie);
 app.use('/api/saveWatch', saveWatch);
+app.use('/api/getWatch', getWatch);
 
 app.use('/api/edit', edit);
 
