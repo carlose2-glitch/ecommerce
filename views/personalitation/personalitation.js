@@ -77,15 +77,47 @@ body.addEventListener('input', e => {
   const amountXL = body.children[1].children[0].children[1].children[1].children[4];
   const price = body.children[1].children[0].children[1].children[1].children[5];
   const amountT = body.children[1].children[0].children[1].children[1].children[6];
+  console.log(body.children[1].children[0].children[1].children[1].children.length);
 
-  amountT.value = Number(amountS.value) +  Number(amountM.value) + Number(amountL.value) + Number(amountXL.value);
+  if(body.children[1].children[0].children[1].children[1].children.length === 7){
 
-  const arrayTexts = [ description, brand, amountS, amountM, amountL, amountXL, price, amountT];
+    amountT.value = Number(amountS.value) +  Number(amountM.value) + Number(amountL.value) + Number(amountXL.value);
+    const arrayTexts = [ description, brand, amountS, amountM, amountL, amountXL, price, amountT];
 
 
-  for(let value of arrayTexts){
-    value.setAttribute('class', 'rounded-lg outline-none resize-none pl-4 pr-4 w-80');
+    for(let value of arrayTexts){
+      value.setAttribute('class', 'rounded-lg outline-none resize-none pl-4 pr-4 w-80');
+    }
+
+  }
+
+  if(body.children[1].children[0].children[1].children[1].children.length === 6){
+
+
+
+    const arrayGlasses = [brand, price, amountXL];
+    const one = body.children[1].children[0].children[1].children[1].children[1];
+    const two = body.children[1].children[0].children[1].children[1].children[2];
+    const three = body.children[1].children[0].children[1].children[1].children[3];
+    const arrayCaracteristGlasses = [one, two, three];
+
+    description.setAttribute('class', 'w-96 resize-none outline-none pl-4 pr-4 rounded-lg h-40 md:h-auto');
+    for(let value of arrayGlasses){
+      value.setAttribute('class', 'rounded-lg outline-none pl-4 pr-4 w-96');
+    }
+
+    for(let value of arrayCaracteristGlasses){
+      changeColor(value);
+    }
   }
 
 });
+
+const changeColor = (v) => {
+
+  for(let i = 0; i < v.children.length; i++){
+    v.children[i].setAttribute('class', 'rounded-lg outline-none pl-4 pr-4 w-20');
+  }
+
+};
 

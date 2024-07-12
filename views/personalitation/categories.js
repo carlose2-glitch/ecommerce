@@ -43,7 +43,7 @@ const shirtsorcaps = (cate) => {
     </div>
 
     <div class="flex flex-col md:flex-row gap-4">
-    <textarea name="description" class="w-80 resize-none outline-none pl-4 pr-4 rounded-lg" id="description" placeholder="descripcion" id="description"></textarea>
+    <textarea name="description" class="w-80 resize-none outline-none pl-4 pr-4 rounded-lg h-40 md:h-auto" id="description" placeholder="descripcion" id="description"></textarea>
 
     <div class="flex flex-wrap flex-col justify-center gap-4">
      <input id="marca" type="text" placeholder="marca" class="rounded-lg outline-none pl-4 pr-4 w-80">
