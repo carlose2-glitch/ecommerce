@@ -42,19 +42,36 @@ const showGlasses = (category) => {
     </div>
 
     <div class="flex flex-col md:flex-row gap-4">
-    <textarea name="description" class="w-80 resize-none outline-none pl-4 pr-4 rounded-lg" id="description" placeholder="descripcion" id="description"></textarea>
+    <textarea name="description" class="w-96 resize-none outline-none pl-4 pr-4 rounded-lg h-40 md:h-auto" id="description" placeholder="descripcion" id="description"></textarea>
 
     <div class="flex flex-wrap flex-col justify-center gap-4">
-     <input id="marca" type="text" placeholder="Marca y modelo" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <div class="flex w-80">
-     <input id="mm-38" type="number" placeholder="Ancho lente" class="rounded-lg outline-none pl-4 pr-4 w-1/4">
-     <input id="mm-39" type="number" placeholder="Puente" class="rounded-lg outline-none pl-4 pr-4 w-1/4">
-     <input id="mm-40" type="number" placeholder="Largo patillas" class="rounded-lg outline-none pl-4 pr-4 w-1/4">
+     <input id="marca" type="text" placeholder="Marca y modelo" class="rounded-lg outline-none pl-4 pr-4 w-96">
+    
+     <div class="flex w-auto gap-4 border rounded-md border-slate-800">
+     <input id="mm-38" type="number" title="Ancho entre visagra y visagra" placeholder="Ancho lente" class="rounded-lg outline-none pl-4 pr-4 w-20">
+     <input id="mm-39" type="number" placeholder="Puente" title="Ancho del puente de la nariz" class="rounded-lg outline-none pl-4 pr-4 w-20">
+     <input id="mm-40" type="number" placeholder="patillas" title="largo de las varillas" class="rounded-lg outline-none pl-4 pr-4 w-20">
+      <input id="mm-38" type="number" placeholder="cantidad" title="Cantidad de la talla" class="rounded-lg outline-none pl-4 pr-4 w-24">
+     
+     </div>
+
+     <div class="flex  w-auto gap-4 border rounded-md border-slate-800">
+     <input id="mm-38" type="number" title="Ancho entre visagra y visagra" placeholder="Ancho lente" class="rounded-lg outline-none pl-4 pr-4 w-20">
+     <input id="mm-39" type="number" title="Ancho del puente de la nariz" placeholder="Puente" class="rounded-lg outline-none pl-4 pr-4 w-20">
+     <input id="mm-40" type="number" title="Largo de las varillas" placeholder="patillas" class="rounded-lg outline-none pl-4 pr-4 w-20">
+     <input id="mm-38" type="number" title="Cantidad de la talla" placeholder="cantidad" class="rounded-lg outline-none pl-4 pr-4 w-24">
+     
+     </div>
+     <div class="flex  w-auto gap-4 border rounded-md border-slate-800">
+     <input id="mm-38" type="number" placeholder="Ancho lente" title="Ancho entre visagra y visagra" class="rounded-lg outline-none pl-4 pr-4 w-20">
+     <input id="mm-39" type="number" placeholder="Puente" title="Ancho del puente de la nariz" class="rounded-lg outline-none pl-4 pr-4 w-20">
+     <input id="mm-40" type="number" placeholder="patillas" title="Largo de las varillas" class="rounded-lg outline-none pl-4 pr-4 w-20">
+      <input id="mm-38" type="number" placeholder="cantidad" title="Cantidad de la talla" class="rounded-lg outline-none pl-4 pr-4 w-24">
      
      </div>
      
-     <input id="price" type="number" placeholder="precio" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="cantidadt" type="number" placeholder="cantidad" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="price" title="precio del producto" type="number" placeholder="precio" class="rounded-lg outline-none pl-4 pr-4 w-96">
+     <input id="cantidadt" title="Cantidad total" type="number" placeholder="total" class="rounded-lg outline-none pl-4 pr-4 w-96">
       </div>
     
     
