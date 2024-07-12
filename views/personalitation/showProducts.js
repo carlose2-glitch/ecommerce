@@ -80,6 +80,9 @@ const evaluate = async (category) => {
     console.log('camisas o gorras');
     return productsGet(category);
   }
+  if(category === 'Lentes'){
+    return [];
+  }
 
 };
 //obtiene los productos de la base de datos

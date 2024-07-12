@@ -16,6 +16,11 @@ const addProduct = (category) => {
     addWatch(categories);
   }
 
+  if(categories === 'lentes'){
+
+    showGlasses(categories);
+  }
+
   //evento click o enter del formulario una vez que todo los requerimientos esten llenos pasa por aqui
 
 };
