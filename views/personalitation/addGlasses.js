@@ -240,8 +240,8 @@ const showGlasses = (category) => {
 
       try {
 
-        // const savedDb = await axios.post('/api/saveGlasses', data);
-        // console.log(savedDb);
+        const savedDb = await axios.post('/api/saveGlasses', data);
+        console.log(savedDb);
 
       } catch (error) {
         console.log(error.message);
