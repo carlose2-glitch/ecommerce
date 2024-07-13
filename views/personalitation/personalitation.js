@@ -99,6 +99,7 @@ body.addEventListener('input', e => {
     const one = body.children[1].children[0].children[1].children[1].children[1];
     const two = body.children[1].children[0].children[1].children[1].children[2];
     const three = body.children[1].children[0].children[1].children[1].children[3];
+    price.value = Number(one.children[3].value) + Number(two.children[3].value) + Number(three.children[3].value) ;
     const arrayCaracteristGlasses = [one, two, three];
 
     description.setAttribute('class', 'w-96 resize-none outline-none pl-4 pr-4 rounded-lg h-40 md:h-auto');

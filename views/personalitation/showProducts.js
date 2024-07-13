@@ -81,7 +81,7 @@ const evaluate = async (category) => {
     return productsGet(category);
   }
   if(category === 'Lentes'){
-    return [];
+    return getGlasses(category);
   }
 
 };
@@ -107,4 +107,15 @@ const getWatch = async (category) => {
     return error.message;
   }
 
+};
+
+const getGlasses = async (category) => {
+  try {
+
+    const products = await axios.post('/api/getGlasses', { category });
+    return products.data.get;
+
+  } catch (error) {
+    return error.message;
+  }
 };

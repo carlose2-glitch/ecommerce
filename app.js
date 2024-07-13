@@ -32,6 +32,7 @@ const deleteCookie = require('./controllers/deleteCookie');
 const saveWatch = require('./controllers/saveWatch');
 const getWatch = require('./controllers/getWatch');
 const saveGlasses = require('./controllers/saveGlasses');
+const  getGlasses = require('./controllers/getGlasses');
 //conexion a mongo db
 
 (async() => {
@@ -94,6 +95,7 @@ app.use('/api/deleteCookie', deleteCookie);
 app.use('/api/saveWatch', saveWatch);
 app.use('/api/getWatch', getWatch);
 app.use('/api/saveGlasses', saveGlasses);
+app.use('/api/getGlasses', getGlasses);
 
 app.use('/api/edit', edit);
 

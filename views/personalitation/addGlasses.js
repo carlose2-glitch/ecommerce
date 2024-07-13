@@ -217,7 +217,7 @@ const showGlasses = (category) => {
       const data = {
         category: category,
         description: description.value,
-        brandandmodel:brandAndModel.value,
+        brand: brandAndModel.value,
         width1: width1.value,
         bridge1: bridge1.value,
         sideburns1: sideburns1.value,
@@ -231,7 +231,7 @@ const showGlasses = (category) => {
         sideburns3: sideburns3.value,
         total3: total3.value,
         price: price.value,
-        amountt: cantidadT.value,
+        totalquanty: cantidadT.value,
         url1: getUrlImages[0].url,
         url2: getUrlImages[1].url,
         url3: getUrlImages[2].url,

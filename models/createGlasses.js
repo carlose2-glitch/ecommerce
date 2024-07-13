@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const schemaGlasses = new mongoose.Schema({
   category: String,
   description: String,
-  brandandmodel: String,
+  brand: String,
   width1: String,
   bridge1: String,
   sideburns1: String,
@@ -17,7 +17,7 @@ const schemaGlasses = new mongoose.Schema({
   sideburns3: String,
   total3: String,
   price: String,
-  amountt: String,
+  totalquanty: String,
   url1: String,
   url2: String,
   url3: String,

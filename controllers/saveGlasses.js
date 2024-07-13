@@ -7,7 +7,7 @@ saveGlasses.post('/', async (req, res) => {
 
   const category = req.body.category;
   const description = req.body.description;
-  const brandandmodel = req.body.brandandmodel;
+  const brand = req.body.brand;
   const width1 = req.body.width1;
   const bridge1 = req.body.bridge1;
   const sideburns1 = req.body.sideburns1;
@@ -21,7 +21,7 @@ saveGlasses.post('/', async (req, res) => {
   const sideburns3 = req.body.sideburns3;
   const total3 = req.body.total3;
   const price = req.body.price;
-  const amountt = req.body.amountt;
+  const totalquanty = req.body.totalquanty;
   const url1 = req.body.url1;
   const url2 = req.body.url2;
   const url3 = req.body.url3;
@@ -29,7 +29,7 @@ saveGlasses.post('/', async (req, res) => {
   const newProduct = new modelGlasses({
     category,
     description,
-    brandandmodel,
+    brand,
     width1,
     bridge1,
     sideburns1,
@@ -43,7 +43,7 @@ saveGlasses.post('/', async (req, res) => {
     sideburns3,
     total3,
     price,
-    amountt,
+    totalquanty,
     url1,
     url2,
     url3,
