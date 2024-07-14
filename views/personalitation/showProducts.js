@@ -5,7 +5,6 @@ const showProducts = async (spanish) => {
   main.setAttribute('class', 'flex gap-4 h-auto w-full justify-center flex-wrap');
 
   const getProducts = await evaluate(spanish);
-  console.log(getProducts);
 
   //const getProducts = await productsGet(spanish);//obtiene los productos de la base de datos
   //console.log(getProducts);
@@ -82,6 +81,9 @@ const evaluate = async (category) => {
   }
   if(category === 'Lentes'){
     return getGlasses(category);
+  }
+  if(category === 'pulseras'){
+    return [];
   }
 
 };

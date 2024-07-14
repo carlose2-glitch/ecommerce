@@ -20,6 +20,9 @@ const addProduct = (category) => {
 
     showGlasses(categories);
   }
+  if(categories === 'pulseras'){
+    showBracelets(categories);
+  }
 
   //evento click o enter del formulario una vez que todo los requerimientos esten llenos pasa por aqui
 
