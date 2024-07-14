@@ -46,10 +46,10 @@ const showBracelets = (c) => {
 
     <div class="flex flex-wrap flex-col justify-center gap-4">
      <input id="marca" type="text" placeholder="marca y modelo" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="mm-38" type="number" placeholder="Cantidad S: 18cm" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="mm-39" type="number" placeholder="Cantidad M: 19cm" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="mm-40" type="number" placeholder="Cantidad L: 20cm" class="rounded-lg outline-none pl-4 pr-4 w-80">
-     <input id="mm-41" type="number" placeholder="Cantidad xl: 21cm" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="s" type="number" placeholder="Cantidad S: 18cm" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="m" type="number" placeholder="Cantidad M: 19cm" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="l" type="number" placeholder="Cantidad L: 20cm" class="rounded-lg outline-none pl-4 pr-4 w-80">
+     <input id="xl" type="number" placeholder="Cantidad xl: 21cm" class="rounded-lg outline-none pl-4 pr-4 w-80">
      <input id="price" type="number" placeholder="precio" class="rounded-lg outline-none pl-4 pr-4 w-80">
      <input id="cantidadt" type="number" placeholder="cantidad total" class="rounded-lg outline-none pl-4 pr-4 w-80">
       </div>
@@ -62,5 +62,97 @@ const showBracelets = (c) => {
    </form>
     </main>`;
 
+  const imageUpload = document.getElementById('image-upload');
+  const imageFront = document.getElementById('image-upload_front');
+  const imageUploadPersonalitation = document.getElementById('image-upload_personatilation');
+  //input de las imagenes
+  const inputFile = document.getElementById('input-file');
+  const inputFileFront = document.getElementById('input-file_front');
+  const inputFilePersonalitation = document.getElementById('input-file_personalitation');
+
+
+  //funciones para que usuario vea las imagenes en el programa
+  inputFile.addEventListener('change', e => {
+
+    //const reader = new FileReader();
+
+    if(e.target.files[0]){
+
+      reader.onload = function ( e ) {
+        imageUpload.src = e.target.result;
+
+      };
+      //console.log(e.target.files[0]);
+      reader.readAsDataURL(e.target.files[0]);
+
+    }else{
+      imageUpload.src = imageDefect;
+    }
+
+  });
+
+  inputFileFront.addEventListener('change', e => {
+    console.log('front');
+    // const reader = new FileReader();
+
+    if(e.target.files[0]){
+      console.log('true');
+      reader.onload = function ( e ) {
+        imageFront.src = e.target.result;
+      };
+      reader.readAsDataURL(e.target.files[0]);
+
+    }else{
+
+      imageFront.src = imageDefect;
+    }
+
+  });
+
+  inputFilePersonalitation.addEventListener('change', e => {
+
+    //const reader = new FileReader();
+    //url = URL.createObjectURL(e.target.files[0]);
+
+    if(e.target.files[0]){
+
+      reader.onload = function ( e ) {
+        imageUploadPersonalitation.src = e.target.result;
+      };
+      reader.readAsDataURL(e.target.files[0]);
+
+    }else{
+      imageUploadPersonalitation.src = imageDefect;
+    }
+
+  });
+
+  const description = document.getElementById('description');
+  const brandAndModel = document.getElementById('marca');
+  const s = document.getElementById('s');
+  const m = document.getElementById('m');
+  const l = document.getElementById('l');
+  const xl = document.getElementById('xl');
+  const price = document.getElementById('price');
+  const total = document.getElementById('cantidadt');
+  const addProductBtn = document.getElementById('addProductbtn');
+
+
+  const form = document.getElementById('form-data');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    let booleanimages = false;
+    let booleantexts = false;
+
+    if(inputFile.files[0] && inputFileFront.files[0] && inputFilePersonalitation.files[0]){
+      booleanimages = true;
+    }else{
+      booleanimages = false;
+    }
+
+    console.log(booleanimages);
+  });
 
 };
