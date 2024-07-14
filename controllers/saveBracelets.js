@@ -1,10 +1,36 @@
 const saveBracelets = require('express').Router();
 
+const bracelets = require('../models/createBracelets');
+
 saveBracelets.post('/', async (req, res) => {
 
-  console.log(req.body);
+  const { category, description, brand, s, m, l, xl, url1, url2, url3, price, totalquanty } = req.body;
 
-  return res.sendStatus(200);
+  const newProduct = new bracelets({
+
+    category,
+    description,
+    brand,
+    s,
+    m,
+    l,
+    xl,
+    url1,
+    url2,
+    url3,
+    price,
+    totalquanty,
+
+  });
+
+  try {
+    const r = await newProduct.save();
+    console.log(r);
+    return res.sendStatus(200);
+  } catch (error) {
+    return res.sendStatus(400);
+
+  }
 
 });
 

@@ -184,7 +184,7 @@ const showBracelets = (c) => {
         url2: getUrlImages[1].url,
         url3: getUrlImages[2].url,
         price: price.value,
-        total: total.value,
+        totalquanty: total.value,
       };
 
       try {
