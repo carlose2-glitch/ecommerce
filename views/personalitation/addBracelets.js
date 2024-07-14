@@ -152,7 +152,65 @@ const showBracelets = (c) => {
       booleanimages = false;
     }
 
-    console.log(booleanimages);
+
+    const arrayForm = [description.value, brandAndModel.value, s.value, m.value, l.value, xl.value, price.value, total.value];
+
+
+    for (let value of arrayForm){
+      if(value.trim()){
+        booleantexts = true;
+      }else{
+        booleantexts = false;
+        break;
+      }
+    }
+
+
+    if(booleanimages && booleantexts){
+      const getUrlImages = await urlImages(inputFile.files[0], inputFileFront.files[0], inputFilePersonalitation.files[0]);
+      addProductBtn.setAttribute('disabled', '');
+      addProductBtn.setAttribute('class', 'flex bg-slate-600 rounded-lg font-bold text-white h-8 hover:scale-110 duration-300 w-72 justify-center items-center');
+      addProductBtn.innerHTML = '<svg class="animate-spinn h-5 w-5 rounded-xl mx-2 border-2 border-indigo-400 border-r-white"></svg><p class="text-white mr-2"> Cargando...</p>';
+
+      const data = {
+        category: c,
+        description: description.value,
+        brand: brandAndModel.value,
+        s: s.value,
+        m: m.value,
+        l: l.value,
+        xl: xl.value,
+        url1: getUrlImages[0].url,
+        url2: getUrlImages[1].url,
+        url3: getUrlImages[2].url,
+        price: price.value,
+        total: total.value,
+      };
+
+      try {
+        const saveDb = await axios.post('/api/saveBracelets', data);
+        console.log(saveDb);
+      } catch (error) {
+        console.log(error.message);
+      }
+
+      body.setAttribute('class', 'bg-slate-300 w-full flex flex-col items-center justify-center h-screen gap-8');
+      body.innerHTML = `<h1 class="font-bold text-green-600 text-5xl" >Producto agregado con exito</h1>
+        <button class="bg-slate-600 rounded-lg font-bold text-white h-8 hover:scale-110 duration-300 w-72" id="returnProduct">Regresar</button>`;
+
+      const returnProduct = document.getElementById('returnProduct');
+
+      returnProduct.addEventListener('click', e => {
+        e.preventDefault();
+        location.reload();
+
+      });
+
+
+    }else{
+      evalueform(inputFile, inputFileFront, inputFilePersonalitation, brandAndModel, description, price, total, s, m, l, xl);
+    }
+
   });
 
 };
