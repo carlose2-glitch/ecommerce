@@ -1,3 +1,4 @@
+
 //muestra los productos seleccionados
 const showProducts = async (spanish) => {
   console.log(spanish);
@@ -83,7 +84,7 @@ const evaluate = async (category) => {
     return getGlasses(category);
   }
   if(category === 'pulseras'){
-    return [];
+    return getBracelets(category);
   }
 
 };
@@ -119,5 +120,15 @@ const getGlasses = async (category) => {
 
   } catch (error) {
     return error.message;
+  }
+};
+
+const getBracelets = async (category) => {
+  try {
+    const products = await axios.post('/api/getBracelets', { category });
+    return products.data.get;
+  } catch (error) {
+    return error.message;
+
   }
 };

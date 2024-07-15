@@ -34,6 +34,7 @@ const getWatch = require('./controllers/getWatch');
 const saveGlasses = require('./controllers/saveGlasses');
 const  getGlasses = require('./controllers/getGlasses');
 const saveBracelets = require('./controllers/saveBracelets');
+const getBracelets = require('./controllers/getBracelets');
 //conexion a mongo db
 
 (async() => {
@@ -98,6 +99,7 @@ app.use('/api/getWatch', getWatch);
 app.use('/api/saveGlasses', saveGlasses);
 app.use('/api/getGlasses', getGlasses);
 app.use('/api/saveBracelets', saveBracelets);
+app.use('/api/getBracelets', getBracelets);
 
 app.use('/api/edit', edit);
 
