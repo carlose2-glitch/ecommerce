@@ -26,11 +26,11 @@ const deleteProduct = (product) => {
     }
 
     if(category === 'lentes'){
-      await removeWatch(id);
+      await removeglass(id);
     }
 
     if(category === 'relojes'){
-      console.log(category );
+      await removeWatch(id);
     }
     // const removeUrl = await removeUrls(urls);
     //console.log(removeUrl);
@@ -70,12 +70,24 @@ const removeProduct = async (product) => {
   }
 };
 
+const removeglass = async (id) => {
+
+  try {
+    await axios.post('/api/deleteGlass', { id });
+    console.log('borrado');
+  } catch (error) {
+    console.log('no se pudo');
+  }
+
+};
+
 const removeWatch = async (id) => {
 
   try {
     await axios.post('/api/deleteWatch', { id });
     console.log('borrado');
   } catch (error) {
+
     console.log('no se pudo');
   }
 

@@ -1,13 +1,11 @@
-const deleteWatch = require('express').Router();
-const model = require('../models/createwatchs');
+const deleteGlass = require('express').Router();
+const model = require('../models/createGlasses');
 
 
-deleteWatch.post('/', async (req, res) => {
-
-
+deleteGlass.post('/', async (req, res) => {
 
   const id = {
-    _id: req.body.id,
+    _id : req.body.id,
   };
 
   try {
@@ -20,6 +18,7 @@ deleteWatch.post('/', async (req, res) => {
     return res.sendStatus(400);
   }
 
+
 });
 
-module.exports = deleteWatch;
+module.exports = deleteGlass;
