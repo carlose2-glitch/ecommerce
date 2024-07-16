@@ -2,10 +2,11 @@
 //muestra los productos seleccionados
 const showProducts = async (spanish) => {
   console.log(spanish);
+
   const main = document.createElement('main');
   main.setAttribute('class', 'flex gap-4 h-auto w-full justify-center flex-wrap');
 
-  const getProducts = await evaluate(spanish);
+  const getProducts = await evaluate(spanish.toLowerCase());
 
   //const getProducts = await productsGet(spanish);//obtiene los productos de la base de datos
   //console.log(getProducts);
@@ -71,20 +72,17 @@ const showProducts = async (spanish) => {
 
 const evaluate = async (category) => {
 
-  if(category === 'Relojes'){
+  if(category === 'relojes'){
 
     return getWatch(category);
   }
 
-  if(category === 'Camisas' || category === 'Gorras'){
+  if(category === 'camisas' || category === 'gorras' || category === 'pulseras'){
     console.log('camisas o gorras');
     return productsGet(category);
   }
-  if(category === 'Lentes'){
+  if(category === 'lentes'){
     return getGlasses(category);
-  }
-  if(category === 'pulseras'){
-    return getBracelets(category);
   }
 
 };
@@ -123,12 +121,4 @@ const getGlasses = async (category) => {
   }
 };
 
-const getBracelets = async (category) => {
-  try {
-    const products = await axios.post('/api/getBracelets', { category });
-    return products.data.get;
-  } catch (error) {
-    return error.message;
 
-  }
-};

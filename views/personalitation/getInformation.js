@@ -31,7 +31,7 @@ body.addEventListener('click', e => {
         spanish: 'Lentes' },
       {
         english: 'bracelets',
-        spanish:'pulseras' },
+        spanish:'Pulseras' },
       {
         english: 'caps',
         spanish: 'Gorras'

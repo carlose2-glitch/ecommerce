@@ -27,9 +27,15 @@ const editProduct = async (product) => {
   // id del producto para buscar en la base de datos
   const idProduct = product.parentElement.children[0].id;
   const category = product.parentElement.parentElement.parentElement.children[0].textContent.toLowerCase();
-  if(category === 'gorras' || category === 'camisas'){
-    console.log('si');
+  if(category === 'gorras' || category === 'camisas' || category === 'pulseras'){
+
     window.location.href = `../editproduct/${idProduct}`;
+  }
+  if(category === 'lentes'){
+    console.log('lentes');
+  }
+  if(category === 'relojes'){
+    console.log('relojes');
   }
 
 

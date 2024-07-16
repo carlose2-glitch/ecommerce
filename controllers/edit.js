@@ -3,6 +3,7 @@ const edit = require('express').Router();
 const schemaproducts = require('../models/createproducts');
 
 edit.get('/:id', async (req, res) => {
+  console.log('aqui');
   const id = req.params.id;
   try {
 
@@ -11,7 +12,7 @@ edit.get('/:id', async (req, res) => {
 
   } catch (error) {
     console.log(error.message);
-    return res.sendStatus(400);
+    return res.status(400).json({ message: error.message });
   }
 
 

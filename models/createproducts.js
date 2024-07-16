@@ -18,6 +18,6 @@ const productSchema = new mongoose.Schema({
 });
 
 
-const product = mongoose.model('shirts-or-caps', productSchema);
+const shirtsorcaps = mongoose.model('shirts-or-caps', productSchema);
 
-module.exports = product;
+module.exports = shirtsorcaps;

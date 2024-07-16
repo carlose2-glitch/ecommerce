@@ -184,11 +184,11 @@ const showBracelets = (c) => {
         url2: getUrlImages[1].url,
         url3: getUrlImages[2].url,
         price: price.value,
-        totalquanty: total.value,
+        cantidadT: total.value,
       };
 
       try {
-        const saveDb = await axios.post('/api/saveBracelets', data);
+        const saveDb = await axios.post('/api/saveDbShirtsCaps', data);
         console.log(saveDb);
       } catch (error) {
         console.log(error.message);
