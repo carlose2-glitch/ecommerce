@@ -16,12 +16,22 @@ const deleteProduct = (product) => {
      </main>`;
 
   const deleteProduct = document.getElementById('delete-product');
+  console.log(category);
 
   deleteProduct.addEventListener('click', async e => {
     e.preventDefault();
 
-    const urls = await removeProduct(id);
-    console.log(urls);
+    if(category === 'gorras' || category === 'pulseras' || category === 'camisas'){
+      const urls = await removeProduct(id);
+    }
+
+    if(category === 'lentes'){
+      await removeWatch(id);
+    }
+
+    if(category === 'relojes'){
+      console.log(category );
+    }
     // const removeUrl = await removeUrls(urls);
     //console.log(removeUrl);
     console.log(e.target.parentElement);
@@ -58,4 +68,15 @@ const removeProduct = async (product) => {
   } catch (error) {
     console.log(error.message);
   }
+};
+
+const removeWatch = async (id) => {
+
+  try {
+    await axios.post('/api/deleteWatch', { id });
+    console.log('borrado');
+  } catch (error) {
+    console.log('no se pudo');
+  }
+
 };
