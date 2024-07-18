@@ -314,7 +314,7 @@ const firstScreen = (data) => {
   editMovile.addEventListener('click', e => {
     e.preventDefault();
 
-    editInputsMovile(e);
+    editInputsMovile(e, data);
   });
 
 
