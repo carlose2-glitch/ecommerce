@@ -61,7 +61,7 @@ const firstScreen = (data) => {
         
         <div class="flex flex-col">
             <span class="text-slate-600">Descripcion:</span>
-            <textarea name="" class="outline-none" id="" rows="3" readonly>${data.description}</textarea>
+            <textarea name="" class="outline-none" id="description-movile" rows="3" readonly>${data.description}</textarea>
             <!-- <input type="text" class="justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none text-center" id="description-movile"> -->
         </div>
 
@@ -71,18 +71,37 @@ const firstScreen = (data) => {
         </div>
     
 
-        <div class="flex justify-between text-slate-600 md:hidden h-10 items-center gap-4">
+        <div class="flex justify-between text-slate-600 md:hidden h-10 w-full items-center gap-4">
             <p>Talla:</p>
-           <button class="border w-16 rounded-md text-white bg-slate-500 p-4">S</button>
-           <button class="border w-16 rounded-md text-white bg-slate-500 p-4">M</button>
-           <button class="border w-16 rounded-md text-white bg-slate-500 p-4">L</button>
-           <button class="border w-16 rounded-md text-white bg-slate-500 p-4">XL</button>
-           <button class="border w-16 rounded-md text-white bg-slate-500 p-4">XXL</button>
+           
+            <div class="w-1/6">
+
+              <button id="s-movile" class="border w-full rounded-md text-black bg-slate-500 p-4">S</button>
+              <p id="s-select" class="hidden">${data.s}</p>
+            
+            </div>
+
+            <div class="w-1/6">
+             <button id="m-movile" class="border w-full rounded-md text-white bg-slate-500 p-4">M</button>
+             <p id="m-select" class="hidden">${data.m}</p>
+            
+            </div>
+
+           <div class="w-1/6">
+           <button id="l-movile" class="border w-full rounded-md text-white bg-slate-500 p-4">L</button>
+           <p id="l-select" class="hidden">${data.l}</p>
+           
+           </div>
+          
+          <div class="w-1/6">
+           <button id="xl-movile" class="border w-full rounded-md text-white bg-slate-500 p-4">XL</button>
+           <p id="xl-select" class="hidden">${data.xl}</p>
+          </div>          
         </div>
         
         <div class="w-full h-8">
             <span class="text-slate-600">Cantidad Talla:</span>
-            <input type="number" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="amount-movile" value="5">
+            <input type="number" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="amount-movile" value="${data.s}">
         </div>
 
         <div class="w-full h-8">
@@ -91,7 +110,7 @@ const firstScreen = (data) => {
         </div>
     
         <div class="w-full flex justify-center">
-            <button class="bg-[#3483fa] mt-8 w-40 rounded-md h-10 hover:scale-110 duration-300 text-white font-principal md:hidden mb-4">Editar</button>
+            <button id="edit-movile" class="bg-[#3483fa] mt-8 w-40 rounded-md h-10 hover:scale-110 duration-300 text-white font-principal md:hidden mb-4">Editar</button>
 
         </div>
         
@@ -290,6 +309,40 @@ const firstScreen = (data) => {
     colorBlack(xl, m, s, l);
   });
 
+  const editMovile = document.getElementById('edit-movile');
+
+  editMovile.addEventListener('click', e => {
+    e.preventDefault();
+
+    editInputsMovile(e);
+  });
+
+
+  const sMovile = document.getElementById('s-movile');
+  const mMovile = document.getElementById('m-movile');
+  const lMovile = document.getElementById('l-movile');
+  const xlMovile = document.getElementById('xl-movile');
+  const amountMmovile = document.getElementById('amount-movile');
+
+  sMovile.addEventListener('click', e => {
+    amountMmovile.value = sMovile.parentElement.children[1].textContent;
+    colorBlackMovile(sMovile, mMovile, lMovile, xlMovile);
+  });
+
+  mMovile.addEventListener('click', e => {
+    amountMmovile.value = mMovile.parentElement.children[1].textContent;
+    colorBlackMovile(mMovile, sMovile, lMovile, xlMovile);
+  });
+
+  lMovile.addEventListener('click', e => {
+    amountMmovile.value = lMovile.parentElement.children[1].textContent;
+    colorBlackMovile(lMovile, sMovile, mMovile, xlMovile);
+  });
+
+  xlMovile.addEventListener('click', e => {
+    amountMmovile.value = xlMovile.parentElement.children[1].textContent;
+    colorBlackMovile(xlMovile, sMovile, lMovile, mMovile);
+  });
 
 
 };
@@ -307,6 +360,23 @@ const colorBlack = (a, b, c, d) => {
       array[value].setAttribute('class', 'border h-10 w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300');
     }
   }
+
+};
+
+const colorBlackMovile = (a, b, c, d) => {
+
+  const array = [a, b, c, d];
+
+  for(let value in array){
+
+    if(value === '0'){
+      array[value].setAttribute('class', 'border w-full rounded-md text-black bg-slate-500 p-4');
+
+    }else{
+      array[value].setAttribute('class', 'border w-full rounded-md text-white bg-slate-500 p-4');
+    }
+  }
+
 
 };
 

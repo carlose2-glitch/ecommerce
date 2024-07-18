@@ -6,6 +6,8 @@ const date = new Date();
 verificationAdmin.post('/', async (req, res) => {
   const user = req.body.name;
   const password = req.body.password;
+  console.log(user);
+  console.log(password);
 
   /*const datas = new admin({
     user,

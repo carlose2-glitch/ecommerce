@@ -34,6 +34,7 @@ const editInputAndSave = async (tag, data) => {
       tag.parentElement.parentElement.children[4].children[1].setAttribute('class', 'outline-none text-justify w-16 flex justify-center items-center');
 
       tag.textContent = 'Editar';
+      location.reload();
 
     }else{
       console.log('debe llenar los datos del formulario');
