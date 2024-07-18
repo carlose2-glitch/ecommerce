@@ -32,7 +32,7 @@ const editInputsMovile = (e) => {
 
   }else{
 
-    evaluateInputs(brandMovile, descriptionMovile, priceMovile, amountMovile, amountTmovile);
+    evaluateInputs(brandMovile, descriptionMovile, priceMovile, amountMovile, e);
 
 
 
@@ -42,10 +42,24 @@ const editInputsMovile = (e) => {
 
 
 
-const evaluateInputs = (brand, description, price, amount, t) => {
+const evaluateInputs = (brand, description, price, amount, e) => {
 
 
-  console.log('guardar');
+  if(brand.value.trim() !== '' && description.value.trim() !== '' && price.value.trim() !== '' && amount.value.trim() !== ''){
+    brand.setAttribute('readonly', '');
+    brand.setAttribute('class', 'justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8');
+
+    description.setAttribute('readonly', '');
+    description.setAttribute('class', 'outline-none');
+
+    price.setAttribute('readonly', '');
+    price.setAttribute('class', 'justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8');
+
+    amount.setAttribute('readonly', '');
+    amount.setAttribute('class', 'justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8');
+
+    e.target.textContent = 'Editar';
+  }
 };
 //guarda el valor del input para la que este subrayada con negro y guardar la cantidad total del producto
 const changeSize = (e) => {

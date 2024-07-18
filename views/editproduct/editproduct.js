@@ -66,8 +66,8 @@ const firstScreen = (data) => {
         </div>
 
         <div class="w-full h-8">
-            <span class="text-slate-600">Precio:</span>
-            <input type="text" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="price-movile" value="$${data.price}">
+            <span class="text-slate-600">Precio: $</span>
+            <input type="text" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="price-movile" value="${data.price}">
         </div>
     
 
