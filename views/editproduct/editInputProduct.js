@@ -34,7 +34,6 @@ const editInputAndSave = async (tag, data) => {
       tag.parentElement.parentElement.children[4].children[1].setAttribute('class', 'outline-none text-justify w-16 flex justify-center items-center');
 
       tag.textContent = 'Editar';
-      location.reload();
 
     }else{
       console.log('debe llenar los datos del formulario');
@@ -58,6 +57,7 @@ const evaluateInputForm = (tag, data) => {
 
   //console.log(children.children[1].children[0].attributes[0].nodeValue);
   const array = [children.children[1], children.children[2], children.children[3], children.children[4]];
+  // console.log(children);
 
   const tallaSelect = document.getElementById('amount-pc');
 

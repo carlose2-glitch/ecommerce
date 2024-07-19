@@ -292,20 +292,21 @@ const firstScreen = (data) => {
   });
   //iteracion de los botones en las tallas
   s.addEventListener('click', e => {
-    amountPc.value = data.s;
+    amountPc.value = s.children[1].textContent;
+
     colorBlack(s, m, l, xl);
     //console.log(s.children[0]);
   });
   m.addEventListener('click', e => {
-    amountPc.value = data.m;
+    amountPc.value = m.children[1].textContent;
     colorBlack(m, s, l, xl);
   });
   l.addEventListener('click', e => {
-    amountPc.value = data.l;
+    amountPc.value = l.children[1].textContent;
     colorBlack(l, s, m, xl);
   });
   xl.addEventListener('click', e => {
-    amountPc.value = data.xl;
+    amountPc.value = xl.children[1].textContent;
     colorBlack(xl, m, s, l);
   });
 
