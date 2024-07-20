@@ -176,6 +176,9 @@ const firstScreen = (data) => {
         <div class="h-[14%] w-full flex items-center justify-center border border-[#b6b4b9] border-l-0 border-r-0">
                <span class="w-auto pl-2">Cantidad: </span>
             <input type="number" id="amount-pc" readonly value="${data.total1}" class="[-webkit-appearance:none] outline-none text-center w-1/6 flex justify-center items-center">
+              <input type="text" class="hidden" id="t1" value="${data.total1}">
+              <input type="text" class="hidden" id="t2" value="${data.total2}">
+              <input type="text" class="hidden" id="t3" value="${data.total3}" >
              <span class="w-auto">Patillas: </span>
                <input type="number" id="sideburns" readonly value="${data.sideburns1}" class="[-webkit-appearance:none] outline-none text-center w-1/6 flex justify-center items-center">
                 <span class="w-auto">Puente: </span>
@@ -249,29 +252,43 @@ const firstScreen = (data) => {
   const sideburns = document.getElementById('sideburns');
   const bridge = document.getElementById('bridge');
 
+  const t1 = document.getElementById('t1');
+  const t2 = document.getElementById('t2');
+  const t3 = document.getElementById('t3');
+
   const select = document.getElementById('selectT');
 
   select.addEventListener('click', e => {
 
     if(e.target.value === 'width1'){
 
-      amountPc.value = data.total1;
+      amountPc.value = t1.value;
       sideburns.value = data.sideburns1;
       bridge.value = data.bridge2;
 
     }
     if(e.target.value === 'width2'){
-      amountPc.value = data.total2;
+      amountPc.value = t2.value;
       sideburns.value = data.sideburns2;
       bridge.value = data.bridge2;
     }
     if(e.target.value === 'width3'){
-      amountPc.value = data.total3;
+      amountPc.value = t3.value;
       sideburns.value = data.sideburns3;
       bridge.value = data.bridge3;
     }
     //console.log(Object.keys(data));
   });
+
+  //boton de editar
+  const edit = document.getElementById('edit');
+
+  edit.addEventListener('click', e => {
+    e.preventDefault();
+
+    editInputs(e.target);
+  });
+
 
 
 };
