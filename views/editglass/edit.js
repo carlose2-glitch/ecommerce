@@ -286,7 +286,7 @@ const firstScreen = (data) => {
   edit.addEventListener('click', e => {
     e.preventDefault();
 
-    editInputs(e.target);
+    editInputs(e.target, data);
   });
 
 

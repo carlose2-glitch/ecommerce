@@ -36,6 +36,7 @@ const getGlasses = require('./controllers/getGlasses');
 const deleteGlass = require('./controllers/deleteGlass');
 const deleteWatch = require('./controllers/deleteWatch');
 const editGlass = require('./controllers/editGlass');
+const updateGlass = require('./controllers/updateGlass');
 
 //conexion a mongo db
 
@@ -106,6 +107,7 @@ app.use('/api/deleteGlass', deleteGlass);
 app.use('/api/deleteWatch', deleteWatch);
 app.use('/api/edit', edit);
 app.use('/api/editGlass', editGlass);
+app.use('/api/updateGlass', updateGlass);
 
 module.exports = app;
 
