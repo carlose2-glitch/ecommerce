@@ -1,29 +1,40 @@
-
-
-
-
-
-
 const body = document.getElementById('body');
-(async () => {
+
+
+(async() => {
 
   const url = document.URL;
-  const urlObject = new URL(url).pathname.split('/')[2];
+  const extractId = new URL(url).pathname.split('/')[2];
 
   try {
-    //verifica si el token no esta vencido
-    const getInformation = await axios.get('/api/personalitation');
-    verificationProduct(urlObject);
+    const search = await axios.get('/api/personalitation');
+    console.log(search);
+    verificationIdProduct(extractId);
   } catch (error) {
     console.log(error.message);
     noScreen();
+
   }
 
 })();
-//imprime el screen principal
+//verifica si esta el producto con ese id
+
+const verificationIdProduct = async (id) => {
+
+  try {
+    const r = await axios.get(`/api/editGlass/${id}`);
+    firstScreen(r.data.get);
+
+  } catch (error) {
+    console.log(error.message);
+  }
+
+};
+
+//mostrar producto
 const firstScreen = (data) => {
   body.setAttribute('class', 'md:bg-slate-400 h-auto font-principal font-bold flex md:justify-center flex-col items-center');
-  body.innerHTML = `   <div class="font-principal bg-slate-400 w-full h-12 text-white flex justify-center items-center">
+  body.innerHTML = ` <div class="font-principal bg-slate-400 w-full h-12 text-white flex justify-center items-center">
     
     </div>
 <!-- para movil -->
@@ -49,7 +60,6 @@ const firstScreen = (data) => {
     <div class="w-4 h-4 bg-gray-200 rounded-lg"></div>
     <div class="w-4 h-4 bg-gray-200 rounded-lg"></div>
 </div>
-
 <div class="bg-white w-full flex items-center flex-col md:hidden">
 
     <div class="w-11/12 flex flex-col gap-4">
@@ -156,28 +166,22 @@ const firstScreen = (data) => {
 
         <div class="h-[14%] border flex items-center w-full justify-center gap-4 border-[#b6b4b9] border-l-0 border-r-0 border-b-0">
             <p class="">Talla:</p>
-            <button id="s"  class="border h-10 w-10 rounded-md text-black bg-slate-500  hover:scale-110 duration-300">
-            <p class="flex justify-center">S</p>
-            <p class="hidden">${data.s}</p>
-            </button>
-            <button id="m" class="border h-10 w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">
-            <p class="flex justify-center">M</p>
-            <p class="hidden">${data.m}</p>
-            </button>
-            <button id="l" class="border h-10 w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">
-            <p class="flex justify-center">L</p>
-            <p class="hidden">${data.l}</p>
-            </button>
-            <button id="xl" class="border h-10 w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300">
-            <p class="flex justify-center">XL</p>
-            <p class="hidden">${data.xl}</p>
-            </button>
-            <button id="t" class="border w-10 rounded-md text-white bg-slate-500 h-10 hover:scale-110 duration-300">T</button>
+           <select name="" id="selectT" title="ancho entre visagra y visagra" class="outline-none justify-end flex text-right">
+                <option id="width1" value="width1" selected>${data.width1} mm</option>
+                <option id="width2" value="width2">${data.width2} mm</option>
+                <option id="width3" value="width3">${data.width3} mm</option>
+            </select>
         </div>
 
         <div class="h-[14%] w-full flex items-center justify-center border border-[#b6b4b9] border-l-0 border-r-0">
-            <span class="w-auto">Cantidad:</span>
-            <input type="number" id="amount-pc" readonly value="${data.s}" class="[-webkit-appearance:none] outline-none text-justify w-16 flex justify-center items-center">
+               <span class="w-auto pl-2">Cantidad: </span>
+            <input type="number" id="amount-pc" readonly value="${data.total1}" class="[-webkit-appearance:none] outline-none text-center w-1/6 flex justify-center items-center">
+             <span class="w-auto">Patillas: </span>
+               <input type="number" id="sideburns" readonly value="${data.sideburns1}" class="[-webkit-appearance:none] outline-none text-center w-1/6 flex justify-center items-center">
+                <span class="w-auto">Puente: </span>
+               <input type="number" id="bridge" readonly value="${data.bridge1}" class="[-webkit-appearance:none] outline-none  w-1/6 flex justify-center text-center items-center">
+             
+
         </div>
        
       
@@ -201,8 +205,6 @@ const firstScreen = (data) => {
   const img3 = document.getElementById('img3');
 
   const arrayMobile = [img1.id, img2.id, img3.id];
-
-
 
   const cargarImagen = (e , o) => {
 
@@ -231,7 +233,6 @@ const firstScreen = (data) => {
   observer.observe(img2);
   observer.observe(img3);
 
-
   const colletionImages = document.getElementById('collection-images');
   const imageP = document.getElementById('imgt-pc');
   //iteracion con las imagenes cuando el usuario hace click se encarga de poner la imagen del lado del tamaño grande
@@ -243,168 +244,42 @@ const firstScreen = (data) => {
   });
 
 
-  //funcion de modificacion de los inputs
-  const edit = document.getElementById('edit');
-
-  edit.addEventListener('click', e => {
-    //console.log(e.target.parentElement.parentElement.children[0]);
-    //console.log(e.target.parentElement.parentElement.children[1]);
-    //console.log(e.target.parentElement.parentElement.children[2].children[1]);
-    //console.log(e.target.parentElement.parentElement.children[4].children[1]);
-    editInputAndSave(e.target, data);
-  });
-
-  //botones de la seleccionde de las tallas
-  const s = document.getElementById('s');
-  const m = document.getElementById('m');
-  const l = document.getElementById('l');
-  const xl = document.getElementById('xl');
-  const t = document.getElementById('t');
+  //funcion de seleccionar la talla de las gafas
   const amountPc = document.getElementById('amount-pc');
+  const sideburns = document.getElementById('sideburns');
+  const bridge = document.getElementById('bridge');
 
+  const select = document.getElementById('selectT');
 
+  select.addEventListener('click', e => {
 
-  t.addEventListener('click', e => {
+    if(e.target.value === 'width1'){
 
-    if(s.children[0].attributes[0].nodeValue.includes('flex')){
-
-      s.children[0].setAttribute('class', 'hidden');
-      s.children[1].setAttribute('class', 'flex justify-center');
-      m.children[0].setAttribute('class', 'hidden');
-      m.children[1].setAttribute('class', 'flex justify-center');
-      l.children[0].setAttribute('class', 'hidden');
-      l.children[1].setAttribute('class', 'flex justify-center');
-      xl.children[0].setAttribute('class', 'hidden');
-      xl.children[1].setAttribute('class', 'flex justify-center');
-
-    }else{
-      s.children[0].setAttribute('class', 'flex justify-center');
-      s.children[1].setAttribute('class', 'hidden');
-      m.children[0].setAttribute('class', 'flex justify-center');
-      m.children[1].setAttribute('class', 'hidden');
-      l.children[0].setAttribute('class', 'flex justify-center');
-      l.children[1].setAttribute('class', 'hidden');
-      xl.children[0].setAttribute('class', 'flex justify-center');
-      xl.children[1].setAttribute('class', 'hidden');
+      amountPc.value = data.total1;
+      sideburns.value = data.sideburns1;
+      bridge.value = data.bridge2;
 
     }
-
-  });
-  //iteracion de los botones en las tallas
-  s.addEventListener('click', e => {
-    amountPc.value = s.children[1].textContent;
-
-    colorBlack(s, m, l, xl);
-    //console.log(s.children[0]);
-  });
-  m.addEventListener('click', e => {
-    amountPc.value = m.children[1].textContent;
-    colorBlack(m, s, l, xl);
-  });
-  l.addEventListener('click', e => {
-    amountPc.value = l.children[1].textContent;
-    colorBlack(l, s, m, xl);
-  });
-  xl.addEventListener('click', e => {
-    amountPc.value = xl.children[1].textContent;
-    colorBlack(xl, m, s, l);
-  });
-
-  const editMovile = document.getElementById('edit-movile');
-
-  editMovile.addEventListener('click', e => {
-    e.preventDefault();
-
-    editInputsMovile(e, data);
-  });
-
-
-  const sMovile = document.getElementById('s-movile');
-  const mMovile = document.getElementById('m-movile');
-  const lMovile = document.getElementById('l-movile');
-  const xlMovile = document.getElementById('xl-movile');
-  const amountMmovile = document.getElementById('amount-movile');
-
-  sMovile.addEventListener('click', e => {
-    amountMmovile.value = sMovile.parentElement.children[1].textContent;
-    colorBlackMovile(sMovile, mMovile, lMovile, xlMovile);
-  });
-
-  mMovile.addEventListener('click', e => {
-    amountMmovile.value = mMovile.parentElement.children[1].textContent;
-    colorBlackMovile(mMovile, sMovile, lMovile, xlMovile);
-  });
-
-  lMovile.addEventListener('click', e => {
-    amountMmovile.value = lMovile.parentElement.children[1].textContent;
-    colorBlackMovile(lMovile, sMovile, mMovile, xlMovile);
-  });
-
-  xlMovile.addEventListener('click', e => {
-    amountMmovile.value = xlMovile.parentElement.children[1].textContent;
-    colorBlackMovile(xlMovile, sMovile, lMovile, mMovile);
-  });
-
-
-};
-
-const colorBlack = (a, b, c, d) => {
-
-  const array = [a, b, c, d];
-
-  for(let value in array){
-
-    if(value === '0'){
-      array[value].setAttribute('class', 'border h-10 w-10 rounded-md text-black bg-slate-500  hover:scale-110 duration-300');
-
-    }else{
-      array[value].setAttribute('class', 'border h-10 w-10 rounded-md text-white bg-slate-500  hover:scale-110 duration-300');
+    if(e.target.value === 'width2'){
+      amountPc.value = data.total2;
+      sideburns.value = data.sideburns2;
+      bridge.value = data.bridge2;
     }
-  }
-
-};
-
-const colorBlackMovile = (a, b, c, d) => {
-
-  const array = [a, b, c, d];
-
-  for(let value in array){
-
-    if(value === '0'){
-      array[value].setAttribute('class', 'border w-full rounded-md text-black bg-slate-500 p-4');
-
-    }else{
-      array[value].setAttribute('class', 'border w-full rounded-md text-white bg-slate-500 p-4');
+    if(e.target.value === 'width3'){
+      amountPc.value = data.total3;
+      sideburns.value = data.sideburns3;
+      bridge.value = data.bridge3;
     }
-  }
+    //console.log(Object.keys(data));
+  });
 
 
 };
-
-//traer los productos de la base de datos
-const verificationProduct = async (urlId) => {
-
-  try {
-    //extraer las carateristicas del producto de la base de datos
-    const extractProduct = await axios.get(`/api/edit/${urlId}`);
-    firstScreen(extractProduct.data.extract);
-
-  } catch (error) {
-    console.log(error.message);
-  }
-
-};
-
-//<p class="h-[14%] w-full flex justify-center items-center border border-[#b6b4b9] border-l-0 border-r-0">Cantidad total:</p>
-
 
 //si no encuentra el token pasa por aca
 const noScreen = () => {
 
   body.setAttribute('class', 'md:bg-[#6980a2] h-screen font-principal font-bold flex justify-center items-center');
   body.innerHTML = `<h1 class="text-red-600">Not Found 404</h1>
- `;
+   `;
 };
-//input del evento de seleccion de las tallas
-
-

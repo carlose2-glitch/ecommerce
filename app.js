@@ -35,6 +35,7 @@ const saveGlasses = require('./controllers/saveGlasses');
 const getGlasses = require('./controllers/getGlasses');
 const deleteGlass = require('./controllers/deleteGlass');
 const deleteWatch = require('./controllers/deleteWatch');
+const editGlass = require('./controllers/editGlass');
 
 //conexion a mongo db
 
@@ -77,6 +78,8 @@ app.use('/editproduct/:id?', express.static(path.resolve('views','editproduct'))
 
 app.use('/admi', express.static(path.resolve('views', 'administrador')));
 
+app.use('/editglass/:id?', express.static(path.resolve('views', 'editglass')));
+
 app.use(morgan('tiny'));
 
 //rutas backend
@@ -101,10 +104,8 @@ app.use('/api/saveGlasses', saveGlasses);
 app.use('/api/getGlasses', getGlasses);
 app.use('/api/deleteGlass', deleteGlass);
 app.use('/api/deleteWatch', deleteWatch);
-
-
 app.use('/api/edit', edit);
-
+app.use('/api/editGlass', editGlass);
 
 module.exports = app;
 

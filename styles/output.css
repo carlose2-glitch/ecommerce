@@ -1040,6 +1040,10 @@ input[type="number"]::-webkit-inner-spin-button,
   align-items: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -1450,8 +1454,16 @@ input[type="number"]::-webkit-inner-spin-button,
   padding-top: 2rem;
 }
 
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .text-justify {

@@ -32,7 +32,7 @@ const editProduct = async (product) => {
     window.location.href = `../editproduct/${idProduct}`;
   }
   if(category === 'lentes'){
-    console.log('lentes');
+    window.location.href = `../editglass/${idProduct}`;
   }
   if(category === 'relojes'){
     console.log('relojes');
