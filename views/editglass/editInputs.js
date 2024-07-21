@@ -4,6 +4,7 @@ const  editInputs = (button, data) => {
   const price = document.getElementById('price-pc');
   const cantidad = document.getElementById('amount-pc');
   const select = document.getElementById('selectT');
+  const totalquanty = document.getElementById('amount-t-pc');
 
 
   if(button.textContent === 'Editar'){
@@ -23,14 +24,14 @@ const  editInputs = (button, data) => {
 
     cantidad.addEventListener('input', e => {
 
-      evaluateCantidad(select.value, e.target.value);
+      evaluateCantidad(select.value, e.target.value, totalquanty);
 
 
     });
 
   }else{
 
-    verificationInputs(brand, description, price, cantidad, data);
+    verificationInputs(brand, description, price, cantidad, data, totalquanty);
 
     brand.setAttribute('readonly', '');
     brand.setAttribute('class', 'h-[14%] w-full flex justify-center items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none text-center');
@@ -50,7 +51,7 @@ const  editInputs = (button, data) => {
   }
 };
 
-const evaluateCantidad = (select, value) => {
+const evaluateCantidad = (select, value, tquanty) => {
 
   const t1 = document.getElementById('t1');
   const t2 = document.getElementById('t2');
@@ -72,31 +73,28 @@ const evaluateCantidad = (select, value) => {
 
   }
 
-  totalQuanty(t1, t2, t3);
+  totalQuanty(t1, t2, t3, tquanty);
 
 };
 
-const totalQuanty = (t1, t2, t3) => {
+const totalQuanty = (t1, t2, t3, tq) => {
 
-  const quantyTotal = document.getElementById('amount-t-pc');
-
-  quantyTotal.value = Number(t1.value) + Number(t2.value) + Number(t3.value);
+  tq.value = Number(t1.value) + Number(t2.value) + Number(t3.value);
 
 };
 
-const verificationInputs = async (brand, description, price, cantidad, data) => {
+const verificationInputs = async (brand, description, price, cantidad, data, tq) => {
 
   if(brand.value.trim() !== '' && description.value.trim() !== '' && price.value.trim() !== '' && cantidad.value.trim() !== ''){
 
     console.log('si');
-    await updateDb(brand.value, description.value, price.value, cantidad.value, data);
+    await updateDb(brand.value, description.value, price.value, cantidad.value, data, tq);
   }
 
 };
 
-const updateDb = async (brand, description, price, cantidad, d) => {
+const updateDb = async (brand, description, price, cantidad, d, tq) => {
 
-  const quantyTotal = document.getElementById('amount-t-pc');
   const t1 = document.getElementById('t1');
   const t2 = document.getElementById('t2');
   const t3 = document.getElementById('t3');
@@ -110,7 +108,7 @@ const updateDb = async (brand, description, price, cantidad, d) => {
     total1: t1.value,
     total2: t2.value,
     total3: t3.value,
-    totalq: quantyTotal.value
+    totalq: tq.value
 
 
   };

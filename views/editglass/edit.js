@@ -81,42 +81,29 @@ const firstScreen = (data) => {
         </div>
     
 
-        <div class="flex justify-between text-slate-600 md:hidden h-10 w-full items-center gap-4">
+        <div class="flex text-slate-600 md:hidden h-10 w-full items-center gap-4">
             <p>Talla:</p>
            
-            <div class="w-1/6">
-
-              <button id="s-movile" class="border w-full rounded-md text-black bg-slate-500 p-4">S</button>
-              <p id="s-select" class="hidden">${data.s}</p>
-            
-            </div>
-
-            <div class="w-1/6">
-             <button id="m-movile" class="border w-full rounded-md text-white bg-slate-500 p-4">M</button>
-             <p id="m-select" class="hidden">${data.m}</p>
-            
-            </div>
-
-           <div class="w-1/6">
-           <button id="l-movile" class="border w-full rounded-md text-white bg-slate-500 p-4">L</button>
-           <p id="l-select" class="hidden">${data.l}</p>
+           <select name="" id="selectT-movile" title="ancho entre visagra y visagra" class="outline-none w-1/2 h-8 text-base rounded-md flex">
            
-           </div>
-          
-          <div class="w-1/6">
-           <button id="xl-movile" class="border w-full rounded-md text-white bg-slate-500 p-4">XL</button>
-           <p id="xl-select" class="hidden">${data.xl}</p>
-          </div>          
+                <option id="width1" value="width1" selected>${data.width1} mm</option>
+                <option id="width2-m" value="width2">${data.width2} mm</option>
+                <option id="width3-m" value="width3">${data.width3} mm</option>
+            </select>      
         </div>
         
-        <div class="w-full h-8">
-            <span class="text-slate-600">Cantidad Talla:</span>
-            <input type="number" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="amount-movile" value="${data.s}">
+        <div class="w-full flex">
+           <span class="w-auto pl-2">Cantidad: </span>
+            <input type="number" id="amount-movile" readonly value="${data.total1}" class="[-webkit-appearance:none] outline-none text-center w-1/6 flex justify-center items-center">
+             <span class="w-auto">Patillas: </span>
+               <input type="number" id="sideburns-movile" readonly value="${data.sideburns1}" class="[-webkit-appearance:none] outline-none text-center w-1/6 flex justify-center items-center">
+                <span class="w-auto">Puente: </span>
+               <input type="number" id="bridge-movile" readonly value="${data.bridge1}" class="[-webkit-appearance:none] outline-none  w-1/6 flex justify-center text-center items-center">
         </div>
 
         <div class="w-full h-8">
             <span class="text-slate-600">Cantidad Total:</span>
-            <input type="number" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="amount-t-movile" value="${data.totalquanty}">
+            <input type="number" class="justify-center text-justify items-center border-[#b6b4b9] border-l-0 border-r-0 border-b-0 outline-none h-8" readonly id="amount-t-m" value="${data.totalquanty}">
         </div>
     
         <div class="w-full flex justify-center">
@@ -255,7 +242,7 @@ const firstScreen = (data) => {
   const t1 = document.getElementById('t1');
   const t2 = document.getElementById('t2');
   const t3 = document.getElementById('t3');
-
+  //seleccionar pc
   const select = document.getElementById('selectT');
 
   select.addEventListener('click', e => {
@@ -264,7 +251,7 @@ const firstScreen = (data) => {
 
       amountPc.value = t1.value;
       sideburns.value = data.sideburns1;
-      bridge.value = data.bridge2;
+      bridge.value = data.bridge1;
 
     }
     if(e.target.value === 'width2'){
@@ -280,6 +267,40 @@ const firstScreen = (data) => {
     //console.log(Object.keys(data));
   });
 
+  //seleccionar movile
+
+  const cantidadM = document.getElementById('amount-movile');
+  const sideburnsMovile = document.getElementById('sideburns-movile');
+  const bridgeMovile = document.getElementById('bridge-movile');
+
+  const selectMovile = document.getElementById('selectT-movile');
+
+  selectMovile.addEventListener('change', e => {
+    console.log(data);
+    if(e.target.value === 'width1'){
+
+      cantidadM.value = t1.value;
+      sideburnsMovile.value = data.sideburns1;
+      bridgeMovile.value = data.bridge1;
+
+    }
+    if(e.target.value === 'width2'){
+
+      cantidadM.value = t2.value;
+      sideburnsMovile.value = data.sideburns2;
+      bridgeMovile.value = data.bridge2;
+
+    }
+    if(e.target.value === 'width3'){
+
+      cantidadM.value = t3.value;
+      sideburnsMovile.value = data.sideburns3;
+      bridgeMovile.value = data.bridge3;
+
+    }
+
+  });
+
   //boton de editar
   const edit = document.getElementById('edit');
 
@@ -287,6 +308,12 @@ const firstScreen = (data) => {
     e.preventDefault();
 
     editInputs(e.target, data);
+  });
+
+  const editMovile = document.getElementById('edit-movile');
+
+  editMovile.addEventListener('click', e => {
+    editInputsMovile(e.target, data);
   });
 
 
