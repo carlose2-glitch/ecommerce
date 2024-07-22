@@ -19,7 +19,7 @@ const showProducts = async (spanish) => {
       //console.log(separateUrl1);
       main.innerHTML += `
   
-        <div class="flex flex-col gap-4 items-center pb-4 bg-slate-200 hover:scale-105 duration-300 mb-4 rounded-lg">
+        <div class="flex flex-col gap-4 items-center w-[70%] md:w-80 pb-4 bg-slate-200 hover:scale-105 duration-300 mb-4 rounded-lg">
     <img id="${element._id}" src="${element.url1}" class="w-full md:h-80 h-60 rounded" alt="img">
     <input type="text" class="bg-slate-200 text-center outline-none font-principal font-bold" value="${element.brand}" readonly>
 
