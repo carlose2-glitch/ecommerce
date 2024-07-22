@@ -37,6 +37,8 @@ const deleteGlass = require('./controllers/deleteGlass');
 const deleteWatch = require('./controllers/deleteWatch');
 const editGlass = require('./controllers/editGlass');
 const updateGlass = require('./controllers/updateGlass');
+const editWatch = require('./controllers/editWatch');
+const updateWatch = require('./controllers/updateWatch');
 
 //conexion a mongo db
 
@@ -81,6 +83,8 @@ app.use('/admi', express.static(path.resolve('views', 'administrador')));
 
 app.use('/editglass/:id?', express.static(path.resolve('views', 'editglass')));
 
+app.use('/editwatch/:id?', express.static(path.resolve('views', 'editwatch')));
+
 app.use(morgan('tiny'));
 
 //rutas backend
@@ -108,6 +112,8 @@ app.use('/api/deleteWatch', deleteWatch);
 app.use('/api/edit', edit);
 app.use('/api/editGlass', editGlass);
 app.use('/api/updateGlass', updateGlass);
+app.use('/api/editWatch', editWatch);
+app.use('/api/updateWatch', updateWatch);
 
 module.exports = app;
 

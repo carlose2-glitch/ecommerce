@@ -276,7 +276,6 @@ const firstScreen = (data) => {
   const selectMovile = document.getElementById('selectT-movile');
 
   selectMovile.addEventListener('change', e => {
-    console.log(data);
     if(e.target.value === 'width1'){
 
       cantidadM.value = t1.value;

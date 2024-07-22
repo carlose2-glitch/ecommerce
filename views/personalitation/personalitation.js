@@ -35,7 +35,7 @@ const editProduct = async (product) => {
     window.location.href = `../editglass/${idProduct}`;
   }
   if(category === 'relojes'){
-    console.log('relojes');
+    window.location.href = `../editwatch/${idProduct}`;
   }
 
 
