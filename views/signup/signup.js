@@ -48,11 +48,9 @@ createAccount.addEventListener('click', e => {
 });
 
 email.addEventListener('input', e => {
-  emptyText('opacity-0 font-bold text-red-700');
   borderColor('ok');
 });
 password.addEventListener('input', e => {
-  emptyText('opacity-0 font-bold text-red-700');
   borderColor('ok');
 });
 
