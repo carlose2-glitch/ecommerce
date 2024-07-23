@@ -112,19 +112,19 @@ items.addEventListener('click', e => {
 //eventos del menu del usuario
 
 userPc.onmouseover = (e) => {
-  menuHamburguerUser.setAttribute('class', 'animate-menuh w-44 ml-[-7.5rem] h-auto bg-white absolute mt-10 flex flex-col items-center z-[1] rounded-md border-2');
+  menuHamburguerUser.setAttribute('class', 'animate-menuh w-44 ml-[-7.5rem] h-auto bg-white absolute mt-10 flex flex-col items-center z-20 rounded-md border-2');
   span.setAttribute('class', 'h-3 w-3 cursor-pointer border-black border-2 mr-2 origin-center rotate-45 border-r-0 border-b-0');
 };
 userPc.onmouseleave = (e) => {
 
-  menuHamburguerUser.setAttribute('class', 'w-44 ml-[-7.5rem] h-auto bg-white absolute mt-10 hidden flex-col items-center z-[1] rounded-md border-2');
+  menuHamburguerUser.setAttribute('class', 'w-44 ml-[-7.5rem] h-auto bg-white absolute mt-10 hidden flex-col items-center rounded-md border-2');
   span.setAttribute('class', 'h-3 w-3 cursor-pointer border-black border-2 mr-2 origin-center rotate-45 border-t-0 border-l-0');
 
 
 };
 
 menuHamburguerUser.onmouseover = (e) => {
-  menuHamburguerUser.setAttribute('class', 'animate-menuh w-44 ml-[-7.5rem] h-auto bg-white absolute mt-10 flex flex-col items-center z-[1] rounded-md border-2');
+  menuHamburguerUser.setAttribute('class', 'animate-menuh w-44 ml-[-7.5rem] h-auto bg-white absolute mt-10 flex flex-col items-center z-20 rounded-md border-2');
   span.setAttribute('class', 'h-3 w-3 cursor-pointer border-black border-2 mr-2 origin-center rotate-45 border-r-0 border-b-0');
 };
 menuHamburguerUser.onmouseleave = (e) => {

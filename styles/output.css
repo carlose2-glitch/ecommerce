@@ -567,6 +567,10 @@ input[type="number"]::-webkit-inner-spin-button,
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .inset-0 {
   inset: 0px;
 }
@@ -613,6 +617,14 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .z-\[2\] {
   z-index: 2;
+}
+
+.z-20 {
+  z-index: 20;
+}
+
+.z-\[20\] {
+  z-index: 20;
 }
 
 .mx-2 {
@@ -892,6 +904,10 @@ input[type="number"]::-webkit-inner-spin-button,
   width: 500%;
 }
 
+.w-\[70\%\] {
+  width: 70%;
+}
+
 .w-\[80\%\] {
   width: 80%;
 }
@@ -910,10 +926,6 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[70\%\] {
-  width: 70%;
 }
 
 .max-w-7xl {
@@ -1892,6 +1904,10 @@ input[type="number"]::-webkit-inner-spin-button,
     width: 15rem;
   }
 
+  .md\:w-80 {
+    width: 20rem;
+  }
+
   .md\:w-\[18rem\] {
     width: 18rem;
   }
@@ -1902,10 +1918,6 @@ input[type="number"]::-webkit-inner-spin-button,
 
   .md\:w-\[95\%\] {
     width: 95%;
-  }
-
-  .md\:w-80 {
-    width: 20rem;
   }
 
   .md\:flex-row {
