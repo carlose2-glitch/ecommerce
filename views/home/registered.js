@@ -80,7 +80,7 @@ const registered = async (data) => {
       </nav>`;
 
   const one = await main();
-  const two = myProducts();
+  const two = await myProducts();
   const three = footer();
 
   body.innerHTML = header + one + two + three;
