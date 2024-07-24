@@ -39,6 +39,9 @@ const editGlass = require('./controllers/editGlass');
 const updateGlass = require('./controllers/updateGlass');
 const editWatch = require('./controllers/editWatch');
 const updateWatch = require('./controllers/updateWatch');
+const extractShirt = require('./controllers/extractShirts');
+const extractWatch = require('./controllers/extractWatch');
+const extractGlass = require('./controllers/extractGlass');
 
 //conexion a mongo db
 
@@ -65,7 +68,7 @@ app.use(cookieParser());
 
 app.use('/', express.static(path.resolve('views', 'home')));
 
-app.use('/categories', express.static(path.resolve('views', 'categories')));
+app.use('/categories/:id?', express.static(path.resolve('views', 'categories')));
 
 app.use('/personalitation', express.static(path.resolve('views', 'personalitation')));
 
@@ -114,6 +117,9 @@ app.use('/api/editGlass', editGlass);
 app.use('/api/updateGlass', updateGlass);
 app.use('/api/editWatch', editWatch);
 app.use('/api/updateWatch', updateWatch);
+app.use('/api/extractShirts', extractShirt);
+app.use('/api/extractwatch', extractWatch);
+app.use('/api/extractGlass', extractGlass);
 
 module.exports = app;
 

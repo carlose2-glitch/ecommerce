@@ -107,7 +107,7 @@ body.addEventListener('input', e => {
     const three = body.children[1].children[0].children[1].children[1].children[3];
     price.value = Number(one.children[3].value) + Number(two.children[3].value) + Number(three.children[3].value) ;
     const arrayCaracteristGlasses = [one, two, three];
-
+    console.log('s');
     description.setAttribute('class', 'w-96 resize-none outline-none pl-4 pr-4 rounded-lg h-40 md:h-auto');
     for(let value of arrayGlasses){
       value.setAttribute('class', 'rounded-lg outline-none pl-4 pr-4 w-96');
@@ -123,7 +123,7 @@ body.addEventListener('input', e => {
 const changeColor = (v) => {
 
   for(let i = 0; i < v.children.length; i++){
-    v.children[i].setAttribute('class', 'rounded-lg outline-none pl-4 pr-4 w-20');
+    // v.children[i].setAttribute('class', 'rounded-lg outline-none pl-4 pr-4 w-20');
   }
 
 };
