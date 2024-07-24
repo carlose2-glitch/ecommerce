@@ -85,7 +85,6 @@ const slider = () => {
 
 
     if(e[0].isIntersecting){
-      console.log(e[0].target);
       for(let i = 0; i<5; i++){
 
         if(e[0].target.id === arrayMobile[i]){
