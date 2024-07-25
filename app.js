@@ -42,6 +42,7 @@ const updateWatch = require('./controllers/updateWatch');
 const extractShirt = require('./controllers/extractShirts');
 const extractWatch = require('./controllers/extractWatch');
 const extractGlass = require('./controllers/extractGlass');
+const closeSection = require('./controllers/closeSection');
 
 //conexion a mongo db
 
@@ -120,6 +121,7 @@ app.use('/api/updateWatch', updateWatch);
 app.use('/api/extractShirts', extractShirt);
 app.use('/api/extractwatch', extractWatch);
 app.use('/api/extractGlass', extractGlass);
+app.use('/api/closeSection', closeSection);
 
 module.exports = app;
 

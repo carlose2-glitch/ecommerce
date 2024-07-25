@@ -81,9 +81,12 @@ const registered = async (data) => {
 
   const one = await main();
   const two = await myProducts();
+
   const three = footer();
 
   body.innerHTML = header + one + two + three;
   eventHamburguer();
   slider();
+  product();
+  closeSection();
 };

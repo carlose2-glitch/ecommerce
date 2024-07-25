@@ -129,9 +129,11 @@ const slider = () => {
     }
   });
 
-  const categories = async (id) => {
 
-    window.location.href = `../categories/${id}`;
-  };
 
+};
+
+const categories = async (id) => {
+
+  window.location.href = `../categories/${id}`;
 };

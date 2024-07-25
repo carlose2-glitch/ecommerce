@@ -1,9 +1,6 @@
 const footer = () => {
 
-  return `<div>
- ultimas compras
- </div>
-
+  return `
  <footer class="flex flex-col pt-4 gap-4 items-center w-full">
     <h2 class="w-full text-center text-2xl">¡Únete a CARRASCO STORE!</h2>
     <p class="w-[90%] text-lg text-center text-slate-500">Suscribete para recibir ofertas exclusivas enviadas directamente a tu bandeja de entrada.</p>

@@ -34,3 +34,16 @@ const myProducts = async () => {
 
  </div>`;
 };
+
+
+const product = () => {
+
+  const controllers = document.getElementById('controllers-products');
+
+  controllers.addEventListener('click', e => {
+    console.log(e.target.id);
+    categories(e.target.id);
+
+  });
+
+};
