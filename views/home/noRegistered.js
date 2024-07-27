@@ -67,11 +67,21 @@ const noRegistered = async () => {
 
 
             </div>
-            <a class="border-2 border-r-0 border-l-0 cursor-pointer transition delay-150 hover:scale-125 h-10 flex flex-col items-center justify-center"><p>RELOJES</p></a>
-            <a class="cursor-pointer transition delay-150 hover:scale-125 h-10 flex flex-col items-center justify-center border-b-2"><p>CAMISAS</p></a>
-            <a class="cursor-pointer transition delay-150 hover:scale-125 h-10 flex flex-col items-center justify-center border-b-2"><p>GORRAS</p></a>
-            <a class="cursor-pointer transition delay-150 hover:scale-125 h-10 flex flex-col items-center justify-center border-b-2"><p>LENTES</p></a>
-            <a class="cursor-pointer transition delay-150 hover:scale-125 h-10 flex flex-col items-center justify-center"><p>PULSERAS</p></a>
+            <a class="border-2 border-r-0 border-l-0 cursor-pointer h-10 flex flex-col items-center justify-center">
+            <p class="transition delay-150 hover:scale-125">RELOJES</p>
+            </a>
+            <a class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
+            <p class="transition delay-150 hover:scale-125">CAMISAS</p>
+            </a>
+            <a class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
+            <p class="transition delay-150 hover:scale-125">GORRAS</p>
+            </a>
+            <a class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
+            <p class="transition delay-150 hover:scale-125">LENTES</p>
+            </a>
+            <a class="cursor-pointer h-10 flex flex-col items-center justify-center">
+            <p class="transition delay-150 hover:scale-125">PULSERAS</p>
+            </a>
 
             </div>
 

@@ -50,9 +50,11 @@ const extractCategories = async (n) => {
     data.glassId = glass.data.get[n]._id;
     data.glassDescription = glass.data.get[n].description;
     data.glassPrice = glass.data.get[n].price;
+    return data;
   } catch (error) {
     console.log(error);
+    return {};
   }
 
-  return data;
+
 };

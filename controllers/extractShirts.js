@@ -7,12 +7,10 @@ extractShirts.post('/', async (req, res) => {
 
   try {
     const get = await product.find({ category: productget });
-    res.status(200).json({ get });
+    return res.status(200).json({ get });
   } catch (error) {
-    res.status(200).json({ message: 'no se encontro producto' });
+    return res.status(400).json({ message: 'no se encontro producto' });
   }
-
-
 });
 
 module.exports = extractShirts;
