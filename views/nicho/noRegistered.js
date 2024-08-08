@@ -1,10 +1,8 @@
-const noRegistered = async () => {
+const no = () => {
+  body.innerHTML = `<nav class="bg-gray-300 w-full h-12 flex justify-center md:justify-between">
 
 
-  const header = `<nav class="bg-gray-300 w-full h-12 flex justify-center md:justify-between">
-
-
-        <img alt="img" src="../img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40">
+        <img alt="im" src="../../img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40">
 
         <div class="hidden md:flex ">
 
@@ -88,62 +86,4 @@ const noRegistered = async () => {
         </div>
 
       </nav>`;
-  const one = await main();
-  const two = await myProducts();
-  const three = footer();
-  body.innerHTML = header + one + two + three;
-
-  eventHamburguer();
-
-  const signUpPc = document.getElementById('signup-pc');
-  const signupMovile = document.getElementById('signup-movile');
-  const createAccountPc = document.getElementById('create_account-pc');
-  const createAccountMovile = document.getElementById('create-account-movile');
-
-
-
-  //eveto de ingresar
-  signUpPc.addEventListener('click', e => {
-
-    window.location.href = '../signup/index.html';
-  });
-  signupMovile.addEventListener('click', e => {
-    window.location.href = '../signup/index.html';
-  });
-  //evento de crear usuario
-  createAccountPc.addEventListener('click', e => {
-    window.location.href = '../createaccount/index.html';
-  });
-  createAccountMovile.addEventListener('click', e => {
-    window.location.href = '../createaccount/index.html';
-  });
-
-  slider();
-  product();
-  categorie();
-};
-
-const categorie = () => {
-
-  const controllersCategories = document.getElementById('controllers-categories-pc');
-
-
-  controllersCategories.addEventListener('click', e => {
-    const search = e.target.textContent.toLowerCase();
-
-    if(search === 'relojes' || search === 'camisas' || search === 'gorras' || search === 'lentes' || search === 'pulseras'){
-      window.location.href = `../nicho/${search}`;
-    }
-  });
-
-  const controllersCategoriesMovile = document.getElementById('items');
-
-  controllersCategoriesMovile.addEventListener('click', e => {
-    const search = e.target.textContent.toLowerCase();
-
-    if(search === 'relojes' || search === 'camisas' || search === 'gorras' || search === 'lentes' || search === 'pulseras'){
-      window.location.href = `../nicho/${search}`;
-    }
-  });
-
 };

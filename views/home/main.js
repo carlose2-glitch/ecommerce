@@ -22,11 +22,11 @@ const main = async () => {
 
 
         <div id="previous" class="absolute z-[2] left-[15%] -translate-x-1/2 rotate-180 w-14 h-14 border-2 rounded-lg transition ease-in-out hover:scale-125 border-white flex items-center cursor-pointer">
-            <span class="w-8 h-8 border-4 rotate-[-45deg] border-t-0 border-l-0 border-white absolute"></span>
+            <span class="w-8 caret-transparent h-8 border-4 rotate-[-45deg] border-t-0 border-l-0 border-white absolute"></span>
         </div>
 
         <div id="next" class="absolute z-[2] left-[85%] -translate-x-1/2 w-14 h-14 border-2 border-white rounded-lg transition ease-in-out hover:scale-125 flex items-center cursor-pointer">
-             <span class="w-8 h-8 border-4 rotate-[-45deg] border-t-0 border-l-0 border-white absolute"></span>
+             <span class="w-8 caret-transparent h-8 border-4 rotate-[-45deg] border-t-0 border-l-0 border-white absolute"></span>
         </div>
     </div>
 

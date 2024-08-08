@@ -89,6 +89,8 @@ app.use('/editglass/:id?', express.static(path.resolve('views', 'editglass')));
 
 app.use('/editwatch/:id?', express.static(path.resolve('views', 'editwatch')));
 
+app.use('/nicho/:name?', express.static(path.resolve('views', 'nicho')));
+
 app.use(morgan('tiny'));
 
 //rutas backend
