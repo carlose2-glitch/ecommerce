@@ -129,6 +129,7 @@ const categorie = () => {
 
 
   controllersCategories.addEventListener('click', e => {
+
     const search = e.target.textContent.toLowerCase();
 
     if(search === 'relojes' || search === 'camisas' || search === 'gorras' || search === 'lentes' || search === 'pulseras'){

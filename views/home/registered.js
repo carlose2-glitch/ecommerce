@@ -31,7 +31,7 @@ const registered = async (data) => {
             <input type="text" class="focus:outline-none focus:ring focus:border-blue-300 rounded h-9 w-44 align-top outline-none px-3 mr-3" placeholder="BUSCAR">
             <i class="fa-solid fa-magnifying-glass text-white text-4xl cursor-pointer hover:scale-125 transition delay-200"></i>
         </div>
-          <div class="text-white hidden md:flex text-base gap-8">
+          <div id="controllers-categories-pc" class="text-white hidden md:flex text-base gap-8">
             <p class="cursor-pointer hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">RELOJES</p>
             <p class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">CAMISAS</p>
             <p class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">GORRAS</p>
@@ -99,4 +99,6 @@ const registered = async (data) => {
   slider();
   product();
   closeSection();
+
+  categorie();
 };
