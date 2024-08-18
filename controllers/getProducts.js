@@ -6,6 +6,7 @@ getproducts.post('/', async (req, res) => {
 
   const category = req.body.category.toLowerCase();
 
+
   try {
     const get = await schemaproducts.find({ category: category });
     console.log(get);
