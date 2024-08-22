@@ -7,7 +7,7 @@ const nav = (v) => {
     return `<nav class="bg-gray-300 w-full h-12 flex justify-center md:justify-between">
 
 
-        <img alt="img" src="../../img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40">
+        <img alt="img" src="/img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40">
 
         <div class="hidden md:flex ">
 
@@ -35,11 +35,11 @@ const nav = (v) => {
             <i class="fa-solid fa-magnifying-glass text-white text-4xl cursor-pointer hover:scale-125 transition delay-200"></i>
         </div>
           <div id="controllers-categories-pc" class="text-white hidden md:flex text-base gap-8">
-            <p class="cursor-pointer hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">RELOJES</p>
-            <p class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">CAMISAS</p>
-            <p class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">GORRAS</p>
-            <P class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">LENTES</P>
-            <P class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">PULSERAS</P>
+            <a href="/nicho/relojes" class="cursor-pointer hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">RELOJES</a>
+            <a href="/nicho/camisas" class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">CAMISAS</a>
+            <a href="/nicho/gorras" class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">GORRAS</a>
+            <a href="/nicho/lentes" class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">LENTES</a>
+            <a href="/nicho/pulseras" class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">PULSERAS</a>
           </div>
 
         <div>
@@ -70,19 +70,19 @@ const nav = (v) => {
 
 
             </div>
-            <a class="border-2 border-r-0 border-l-0 cursor-pointer h-10 flex flex-col items-center justify-center">
+            <a href="/nicho/relojes" class="border-2 border-r-0 border-l-0 cursor-pointer h-10 flex flex-col items-center justify-center">
             <p class="transition delay-150 hover:scale-125">RELOJES</p>
             </a>
-            <a class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
+            <a href="/nicho/camisas" class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
             <p class="transition delay-150 hover:scale-125">CAMISAS</p>
             </a>
-            <a class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
+            <a href="/nicho/gorras" class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
             <p class="transition delay-150 hover:scale-125">GORRAS</p>
             </a>
-            <a class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
+            <a href="/nicho/lentes" class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
             <p class="transition delay-150 hover:scale-125">LENTES</p>
             </a>
-            <a class="cursor-pointer h-10 flex flex-col items-center justify-center">
+            <a href="/nicho/pulseras" class="cursor-pointer h-10 flex flex-col items-center justify-center">
             <p class="transition delay-150 hover:scale-125">PULSERAS</p>
             </a>
 
@@ -96,7 +96,7 @@ const nav = (v) => {
     return `<nav class="bg-gray-300 w-full h-12 flex justify-center md:justify-between">
 
 
-        <img alt="img" src="../../img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40">
+        <img alt="img" src="/img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40">
 
         <div class="hidden md:flex ">
 
@@ -124,11 +124,11 @@ const nav = (v) => {
             <i class="fa-solid fa-magnifying-glass text-white text-4xl cursor-pointer hover:scale-125 transition delay-200"></i>
         </div>
           <div id="controllers-categories-pc" class="text-white hidden md:flex text-base gap-8">
-            <p class="cursor-pointer hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">RELOJES</p>
-            <p class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">CAMISAS</p>
-            <p class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">GORRAS</p>
-            <P class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">LENTES</P>
-            <P class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">PULSERAS</P>
+            <a href="/nicho/relojes" class="cursor-pointer hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">RELOJES</a>
+            <a href="/nicho/camisas" class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">CAMISAS</a>
+            <a href="/nicho/gorras" class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">GORRAS</a>
+            <a href="/nicho/lentes" class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">LENTES</a>
+            <a href="/nicho/pulseras" class="cursor-pointer  hover:text-blue-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">PULSERAS</a>
           </div>
 
         <div>
@@ -159,19 +159,19 @@ const nav = (v) => {
 
 
             </div>
-            <a class="border-2 border-r-0 border-l-0 cursor-pointer h-10 flex flex-col items-center justify-center">
+            <a href="/nicho/relojes" class="border-2 border-r-0 border-l-0 cursor-pointer h-10 flex flex-col items-center justify-center">
             <p class="transition delay-150 hover:scale-125">RELOJES</p>
             </a>
-            <a class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
+            <a href="/nicho/camisas" class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
             <p class="transition delay-150 hover:scale-125">CAMISAS</p>
             </a>
-            <a class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
+            <a href="/nicho/gorras" class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
             <p class="transition delay-150 hover:scale-125">GORRAS</p>
             </a>
-            <a class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
+            <a href="/nicho/lentes" class="cursor-pointer h-10 flex flex-col items-center justify-center border-b-2">
             <p class="transition delay-150 hover:scale-125">LENTES</p>
             </a>
-            <a class="cursor-pointer h-10 flex flex-col items-center justify-center">
+            <a href="/nicho/pulseras" class="cursor-pointer h-10 flex flex-col items-center justify-center">
             <p class="transition delay-150 hover:scale-125">PULSERAS</p>
             </a>
 

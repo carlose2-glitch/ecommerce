@@ -30,18 +30,6 @@ const extract = async () => {
 };
 
 
-const selectCategory = () => {
-
-  const select = document.getElementById('controllers-categories-pc');
-
-  select.addEventListener('click', e => {
-    const category = e.target.textContent.toLowerCase();
-    window.location = `/nicho/${category}`;
-
-
-  });
-};
-
 const container = (obj) => {
 
   const main = document.createElement('main');
@@ -51,11 +39,11 @@ const container = (obj) => {
 
     main.innerHTML += `
   
-        <div class="flex flex-col gap-4 items-center w-[70%] md:w-80 pb-4 bg-slate-200 hover:scale-105 duration-300 mb-4 rounded-lg">
-    <img id="${element._id}" src="${element.url1}" class="w-full md:h-80 h-60 rounded cursor-pointer" alt="img">
-    <input type="text" class="bg-slate-200 text-center outline-none font-principal font-bold" value="${element.brand}" readonly>
+        <div class="flex caret-transparent cursor-pointer flex-col gap-4 items-center w-[40%] md:w-80 pb-4 bg-slate-200 hover:scale-105 duration-300 mb-4 rounded-lg">
+    <img id="${element._id}" src="${element.url1}" class="w-full md:h-80 h-52 rounded cursor-pointer" alt="img">
+    <input type="text" class="bg-slate-200 text-center w-full outline-none font-principal font-bold" value="${element.brand}" readonly>
 
-    <input type="text" class="bg-slate-200 text-center outline-none font-principal font-bold" value="$${element.price}" readonly>
+    <input type="text" class="bg-slate-200 text-center w-full outline-none font-principal font-bold" value="$${element.price}" readonly>
    
   
     </div>`;

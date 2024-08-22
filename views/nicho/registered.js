@@ -1,7 +1,9 @@
-const yes = (v) => {
+const yes = async (v) => {
 
-  const extractProduct = extract();
-
+  const extractProduct = await extract();
+  const imagesProducts = container(extractProduct);
   body.innerHTML = nav(v);
+  body.appendChild(imagesProducts);
   eventHamburguer();
+  //selectCategory();
 };

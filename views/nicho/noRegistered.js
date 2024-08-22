@@ -6,5 +6,6 @@ const no = async (v) => {
   body.innerHTML = nav(v);
   body.appendChild(imagesProducts);
   eventHamburguer();
-  selectCategory(); //extract.js
+  //selectCategory(); //extract.js
+  linksHamburguer();
 };

@@ -4,7 +4,7 @@ const noRegistered = async () => {
   const header = `<nav class="bg-gray-300 w-full h-12 flex justify-center md:justify-between">
 
 
-        <img alt="img" src="../img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40">
+        <img alt="img" src="/img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40">
 
         <div class="hidden md:flex ">
 
