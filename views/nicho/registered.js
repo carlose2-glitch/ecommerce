@@ -6,4 +6,5 @@ const yes = async (v) => {
   body.appendChild(imagesProducts);
   eventHamburguer();
   //selectCategory();
+  closeSection();
 };
