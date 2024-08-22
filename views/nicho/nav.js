@@ -7,7 +7,7 @@ const nav = (v) => {
     return `<nav class="bg-gray-300 w-full h-12 flex justify-center md:justify-between">
 
 
-        <img alt="img" src="/img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40">
+        <img alt="img" id="logo-principal" src="/img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40 cursor-pointer">
 
         <div class="hidden md:flex ">
 
@@ -96,7 +96,7 @@ const nav = (v) => {
     return `<nav class="bg-gray-300 w-full h-12 flex justify-center md:justify-between">
 
 
-        <img alt="img" src="/img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40">
+        <img alt="img" id="logo-principal" src="/img/carrasco-high-resolution-logo-black-transparent.svg" class="ps-2 md:ps-4 w-40 cursor-pointer">
 
         <div class="hidden md:flex ">
 

@@ -7,4 +7,5 @@ const yes = async (v) => {
   eventHamburguer();
   //selectCategory();
   closeSection();
+  principal();
 };

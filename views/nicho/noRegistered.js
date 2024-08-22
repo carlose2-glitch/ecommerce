@@ -8,5 +8,5 @@ const no = async (v) => {
   eventHamburguer();
   //selectCategory(); //extract.js
   linksHamburguer();
-
+  principal();
 };

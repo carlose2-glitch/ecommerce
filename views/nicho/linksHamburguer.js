@@ -41,3 +41,12 @@ const closeSection = async () => {
   });
 };
 
+const principal = () => {
+
+  const logoPrincipal = document.getElementById('logo-principal');
+
+  logoPrincipal.addEventListener('click', e => {
+    window.location.href = '/';
+  });
+
+};
