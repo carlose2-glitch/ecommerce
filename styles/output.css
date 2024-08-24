@@ -762,6 +762,10 @@ input[type="number"]::-webkit-inner-spin-button,
   height: 83.333333%;
 }
 
+.h-52 {
+  height: 13rem;
+}
+
 .h-60 {
   height: 15rem;
 }
@@ -808,10 +812,6 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .h-screen {
   height: 100vh;
-}
-
-.h-52 {
-  height: 13rem;
 }
 
 .w-1\/2 {
@@ -964,10 +964,6 @@ input[type="number"]::-webkit-inner-spin-button,
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[30\%\] {
-  width: 30%;
 }
 
 .max-w-7xl {

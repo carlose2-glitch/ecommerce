@@ -43,7 +43,9 @@ const extractShirts = require('./controllers/extractShirts');
 const extractWatch = require('./controllers/extractWatch');
 const extractGlass = require('./controllers/extractGlass');
 const closeSection = require('./controllers/closeSection');
-
+const extractIdShirts = require('./controllers/extractIdProduct');
+const extractIdGlass = require('./controllers/extractIdGlass');
+const extractIdWatch = require('./controllers/extractIdWatch');
 //conexion a mongo db
 
 (async() => {
@@ -124,6 +126,9 @@ app.use('/api/extractShirts', extractShirts);
 app.use('/api/extractwatch', extractWatch);
 app.use('/api/extractGlass', extractGlass);
 app.use('/api/closeSection', closeSection);
+app.use('/api/extracIdShirts', extractIdShirts);
+app.use('/api/extractIdGlass', extractIdGlass);
+app.use('/api/extractIdWatch', extractIdWatch);
 
 module.exports = app;
 

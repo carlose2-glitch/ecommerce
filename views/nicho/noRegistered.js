@@ -9,4 +9,17 @@ const no = async (v) => {
   //selectCategory(); //extract.js
   linksHamburguer();
   principal();
+  selectProduct();
+};
+
+const selectProduct = () => {
+
+  const main = document.getElementById('main');
+
+  main.addEventListener('click', e => {
+
+    if(e.target.id !== '' && e.target.id !== 'main'){
+      window.location.href = `/categories/${e.target.id}`;
+    }
+  });
 };
