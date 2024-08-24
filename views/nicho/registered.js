@@ -8,4 +8,5 @@ const yes = async (v) => {
   //selectCategory();
   closeSection();
   principal();
+  selectProduct();
 };

@@ -1,9 +1,9 @@
 const urlProduct =  document.URL.split('/')[4];
-
+const body = document.querySelector('body');
 const array = [];
 
-
 (async() => {
+
 
   try {
     const data = await axios.post('/api/extracIdShirts', { urlProduct });
@@ -43,8 +43,18 @@ const array = [];
     console.log(error);
   }
 
-  console.log(array);
-})();
+  body.setAttribute('class', 'font-principal font-bold w-full bg-slate-300 flex flex-wrap');
 
+  try {
+    const data = await axios.get('/api/home');
+    console.log(data);
+    registered(array[0]);
+  } catch (error) {
+    console.log(error.message);
+    noRegistered(array[0]);
+  }
+
+
+})();
 
 
